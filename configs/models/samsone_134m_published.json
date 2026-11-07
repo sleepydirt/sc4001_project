@@ -1,0 +1,12 @@
+{
+  "registry_id": "samsone_134m_published",
+  "asset": {
+    "local_path": "/home/aaron/sc4001_project/artifacts/assets/samsone/samsone_134m_model_bf16.ckpt",
+    "sha256": "ee3eda7afc16f57e923fea8021e5d131709ccd0247dd178c4dbfa9087cc7b90c",
+    "source_revision": "a71e77ae9528ef411ae26cdeb02d7b90cc18a50c",
+    "source_url": "https://github.com/SamsungLabs/samsone/releases/tag/v1.0.0",
+    "license": "see pinned upstream LICENSE"
+  },
+  "primary_architecture": "released Samsone134M",
+  "fresh_component_sources": null
+}

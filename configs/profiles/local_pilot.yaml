@@ -1,0 +1,11 @@
+profile: local_pilot
+seed: 17
+real_quota: {train: 256, dev: 64, test: 128}
+synthetic_groups: {train: 256, dev: 64, test: 128}
+updates: {warmup: 64, continued_sft: 32, grpo: 32, fresh_text: 8, fresh_align: 8, fresh_audio: 16}
+effective_batch: 4
+group_size: 4
+max_new_tokens: 128
+precision: fp16
+overfit_updates: 200
+evaluation_limit_groups: null

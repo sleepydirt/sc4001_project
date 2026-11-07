@@ -1,0 +1,20 @@
+{
+  "registry_id": "mellow_v0_published",
+  "asset": {
+    "repo_id": "soham97/mellow",
+    "revision": "83672db0dae28764e283210d5bb732621e903d8a",
+    "source_url": "https://huggingface.co/soham97/mellow",
+    "license": "mit",
+    "files": [
+      ".gitattributes",
+      "README.md",
+      "config.json",
+      "resource/image.png",
+      "v0.ckpt",
+      "v0.yaml",
+      "v0_s.ckpt"
+    ]
+  },
+  "primary_architecture": "native",
+  "fresh_component_sources": null
+}

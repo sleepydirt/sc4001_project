@@ -1,0 +1,9 @@
+{
+  "registry_id": "samsone_134m_fresh",
+  "asset": null,
+  "primary_architecture": "released Samsone134M",
+  "fresh_component_sources": [
+    "smollm2_135m_base",
+    "whisper_tiny"
+  ]
+}

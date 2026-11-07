@@ -1,0 +1,25 @@
+title: Learning dynamics of supervised and reinforcement post-training for nano speech-to-tool models
+primary_family: samsone_134m
+encoder_frozen: true
+context_positions: 2048
+max_new_tokens: 128
+seeds: [17, 42, 123]
+mixture: {slurp: 0.5, constructed: 0.5}
+selection: mean_dev_id_and_dev_schema_ood_macro_source
+objective_version: grpo_population_std_sequence_mean_v1
+sft: {decoder_lr: 0.00002, projector_lr: 0.0001}
+grpo: {decoder_lr: 0.000001, projector_lr: 0.000005, beta: 0.01, epsilon: 0.2, group_size: 4}
+runs:
+  S_P0: {model: samsone_134m_published, stage: baseline}
+  S_P1: {model: samsone_134m_published, stage: sft}
+  S_P_SFT: {model: samsone_134m_published, parent: S_P1, stage: sft}
+  S_P_GRPO: {model: samsone_134m_published, parent: S_P1, stage: grpo}
+  M_P0: {model: mellow_v0_published, stage: baseline}
+  M_P1: {model: mellow_v0_published, stage: sft}
+  M_P_SFT: {model: mellow_v0_published, parent: M_P1, stage: sft}
+  M_P_GRPO: {model: mellow_v0_published, parent: M_P1, stage: grpo}
+  F_TEXT: {model: samsone_134m_fresh, stage: text}
+  F_ALIGN: {model: samsone_134m_fresh, parent: F_TEXT, stage: align}
+  F_AUDIO: {model: samsone_134m_fresh, parent: F_ALIGN, stage: audio}
+  F_SFT: {model: samsone_134m_fresh, parent: F_AUDIO, stage: sft}
+  F_GRPO: {model: samsone_134m_fresh, parent: F_AUDIO, stage: grpo}

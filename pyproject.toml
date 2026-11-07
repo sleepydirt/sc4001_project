@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "nano-audio"
+version = "0.1.0"
+description = "Learning dynamics of supervised and reinforcement post-training for nano speech-to-tool models"
+requires-python = ">=3.12,<3.13"
+dependencies = ["torch==2.9.1", "torchaudio==2.9.1", "transformers==4.57.6", "accelerate>=1.11,<2", "soundfile>=0.13", "scipy>=1.15", "pyyaml>=6", "einops>=0.8", "torchcodec==0.8.1", "kokoro==0.9.4", "datasets>=4,<5", "jsonschema>=4", "psutil>=7", "lightning>=2.5,<2.7", "jsonargparse[signatures]>=4.28", "setuptools==80.9.0"]
+[project.optional-dependencies]
+mellow = ["importlib-resources==5.12.0", "librosa==0.10.0.post2", "torchlibrosa==0.1.0"]
+dev = ["pytest>=8"]
+[project.scripts]
+nano-audio = "nano_audio.cli:main"
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["integration: requires downloaded real models"]

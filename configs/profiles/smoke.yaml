@@ -1,0 +1,11 @@
+profile: smoke
+seed: 17
+real_quota: 16
+synthetic_groups: {train: 16, dev: 8, test: 8}
+updates: {warmup: 1, continued_sft: 1, grpo: 1, fresh_text: 1, fresh_align: 1, fresh_audio: 1}
+effective_batch: 1
+group_size: 4
+max_new_tokens: 128
+precision: fp16
+overfit_updates: 0
+evaluation_limit_groups: 2

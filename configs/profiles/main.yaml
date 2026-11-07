@@ -1,0 +1,11 @@
+profile: main
+seeds: [17, 42, 123]
+real_quota: {train: 5000, dev: 500, test: 1000}
+synthetic_groups: {train: 4000, dev: 500, test: 1000}
+updates: {warmup: 256, continued_sft: 512, grpo: 512, fresh_text: 256, fresh_align: 256, fresh_audio: 512}
+effective_batch: 8
+group_size: 4
+max_new_tokens: 128
+precision: fp16
+overfit_updates: 200
+evaluation_limit_groups: null
