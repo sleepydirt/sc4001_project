@@ -174,6 +174,21 @@ def train(args):
                 serial=[[{k:(v.cpu().tolist() if torch.is_tensor(v) else v) for k,v in row.items()} for row in group] for group in trainer.last_rollouts]
                 append_json(directory/'rollouts.jsonl',{'step':trainer.step,'groups':serial})
             if trainer.step%configuration.checkpoint_every==0 or stopping['requested']:trainer.save_checkpoint(directory/'checkpoint')
+            if wb is not None:
+                metrics = {
+                    f"train/{key}": value
+                    for key, value in result.items()
+                    if key != "step" and isinstance(value, (int, float))
+                }
+                metrics.update({
+                    f"train/lr_group_{i}": lr
+                    for i, lr in enumerate(result["learning_rates"])
+                })
+                wb.log({
+                    "update": trainer.step,
+                    "train/wall_minutes": (time.monotonic() - started) / 60,
+                    **metrics,
+                })
             if stopping['requested']:
                 write_json(done,{'status':'interrupted','identity':identity,'next_command':f'nano-audio train --run {args.run} --profile {args.profile} --seed {args.seed}'})
                 raise SystemExit(75)
