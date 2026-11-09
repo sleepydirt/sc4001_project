@@ -70,7 +70,7 @@ def _ensure_g2p(target):
     importlib.invalidate_caches()
     (target / 'source_manifest.json').write_text(json.dumps({'url':url,'sha256':hashlib.sha256(wheel.read_bytes()).hexdigest(),'version':'3.8.0'},indent=2))
 
-def prepare_data(profile='smoke', output_dir=None, seed=17):
+def prepare_data(profile='smoke', output_dir=None, seed=17, device="cpu"):
     """Acquire minimal TTS assets, synthesize profile quotas, write examples.jsonl.
 
     Returns manifest with paths, source availability and split audit. Synthetic
@@ -87,8 +87,8 @@ def prepare_data(profile='smoke', output_dir=None, seed=17):
     _ensure_g2p(assets / 'python')
     import torch
     torch.set_num_threads(min(4, os.cpu_count() or 1))
-    print('synthesizing profile groups on cpu: ' + str(len(groups)), flush=True)
-    recordings = synthesize_groups(groups, assets, output / 'audio', voices, revision, device='cpu', seed=seed, speeds=(1.0,1.15,1.3,1.5))
+    print(f'synthesizing profile groups on {device}: ' + str(len(groups)), flush=True)
+    recordings = synthesize_groups(groups, assets, output / 'audio', voices, revision, device=device, seed=seed, speeds=(1.0,1.15,1.3,1.5))
     examples = expand_groups(recordings, schema_families(), voices)
     audit = audit_splits(examples)
     path = output / 'examples.jsonl'
