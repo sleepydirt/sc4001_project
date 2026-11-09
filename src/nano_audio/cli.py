@@ -116,53 +116,83 @@ def train(args):
         # Save only at a completed optimizer boundary, never a half-updated Adam state.
         stopping['requested']=True
     for sig in [signal.SIGTERM,signal.SIGUSR1]:signal.signal(sig,preempt)
-    # Deduplicate schema expansion for semantic-pool sampling; schema sampled independently.
-    rng=random.Random(args.seed)
-    pool={}
-    for r in rows:pool.setdefault(r['utterance_group_id'],[]).append(r)
-    groups=list(pool)
-    sampled=[]
-    for _ in range(updates):
-        batch=[]
-        for _ in range(configuration.effective_batch_size):
-            group=rng.choice(groups);item=dict(rng.choice(pool[group]));item['tools']=list(item['tools']);rng.shuffle(item['tools']);batch.append(item)
-        sampled.append(batch)
-    probe=dict(rows[0])
-    if stage=='text':probe['modality']='text'
-    elif stage=='align':probe['_prompt']='transcribe the speech. answer: ';probe['target_text']=probe['transcript']
-    probe_ids=policy.encode(probe['target_text'])+[policy.eos_token_id]
-    with torch.no_grad():probe_before=float(-policy.completion_logprobs(probe,probe_ids).mean())
-    while trainer.step<updates:
-        batch=sampled[trainer.step]
-        for ex in batch:
-            if stage=='text':ex['modality']='text'
-            elif stage=='align' and trainer.step%2==0:ex['_prompt']='transcribe the speech. answer: ';ex['target_text']=ex['transcript']
-            elif stage=='audio' and trainer.step%4==0:ex['_prompt']='transcribe the speech. answer: ';ex['target_text']=ex['transcript']
-        result=trainer.grpo_step(batch) if objective=='grpo' else trainer.sft_step(batch)
-        print(json.dumps({'run':args.run,**result}),flush=True)
-        if objective=='grpo':
-            serial=[[{k:(v.cpu().tolist() if torch.is_tensor(v) else v) for k,v in row.items()} for row in group] for group in trainer.last_rollouts]
-            append_json(directory/'rollouts.jsonl',{'step':trainer.step,'groups':serial})
-        if trainer.step%configuration.checkpoint_every==0 or stopping['requested']:trainer.save_checkpoint(directory/'checkpoint')
-        if stopping['requested']:
-            write_json(done,{'status':'interrupted','identity':identity,'next_command':f'nano-audio train --run {args.run} --profile {args.profile} --seed {args.seed}'})
-            raise SystemExit(75)
-    trainer.save_checkpoint(directory/'checkpoint')
-    resumed=trainer.load_checkpoint(directory/'checkpoint')
-    resume_verified=resumed['step']==trainer.step and resumed['sampler_position']==trainer.sampler_position
-    with torch.no_grad():probe_after=float(-policy.completion_logprobs(probe,probe_ids).mean())
-    write_json(directory/'probe.json',{'id':probe['id'],'target_ids':probe_ids,'before_response_nll':probe_before,'after_response_nll':probe_after,'interpretation':'teacher-forced diagnostic, not speech-understanding accuracy'})
-    # Smoke held-out dev only. Main final evaluation is an explicit separate command.
-    dev_pool=records(args.profile,'dev');dev_by_group={}
-    for ex in dev_pool:dev_by_group.setdefault(ex['utterance_group_id'],ex)
-    dev=list(dev_by_group.values())[:2 if args.profile=='smoke' else 16]
-    predictions=[]
-    for ex in dev:
-        output=policy.generate(ex,{'max_new_tokens':128});predictions.append({'id':ex['id'],'utterance_group_id':ex['utterance_group_id'],'schema_family_id':ex['schema_family_id'],'source':ex['source'],'split':ex['split'],'output':output,**scoring(ex,output)})
-    from .evaluation.metrics import aggregate
-    write_json(directory/'dev_predictions.json',predictions)
-    result={'status':'completed','identity':identity,'profile':args.profile,'run':args.run,'updates':trainer.step,'resume_verified':resume_verified,'parent':cfg.get('parent'),'parent_seed':parent_seed if cfg.get('parent') else None,'parent_checkpoint_sha256':sha(parent) if cfg.get('parent') else None,'data_hash':data_hash,'manifest':policy.parameter_manifest(),'dev_metrics':aggregate(predictions),'warning':'smoke infrastructure evidence only' if args.profile=='smoke' else None,'rl_signal':'unverified; inspect reward-bearing groups' if objective=='grpo' else None}
-    write_json(done,result);return result
+
+
+    from contextlib import nullcontext
+
+    tracking = nullcontext()
+    if os.environ.get("WANDB_PROJECT"):
+        import wandb
+
+        tracking = wandb.init(
+            project=os.environ["WANDB_PROJECT"],
+            name=f"{args.run}-{args.profile}-s{args.seed}-{os.getenv('SLURM_JOB_ID', 'local')}",
+            config={
+                **dataclasses.asdict(configuration),
+                "run": args.run,
+                "seed": args.seed,
+                "model": cfg["model"],
+                "data_sha256": data_hash,
+                "parent_sha256": sha(parent) if cfg.get("parent") else None,
+                "start_update": trainer.step,
+            },
+        )
+
+    with tracking as wb:
+        started = time.monotonic()
+        if wb is not None:
+            wb.define_metric("update")
+            wb.define_metric("train/*", step_metric="update")
+            wb.define_metric("dev/*", step_metric="update")
+    
+        # Indent the rest of train() inside this block, through its final return.
+        # Deduplicate schema expansion for semantic-pool sampling; schema sampled independently.
+        rng=random.Random(args.seed)
+        pool={}
+        for r in rows:pool.setdefault(r['utterance_group_id'],[]).append(r)
+        groups=list(pool)
+        sampled=[]
+        for _ in range(updates):
+            batch=[]
+            for _ in range(configuration.effective_batch_size):
+                group=rng.choice(groups);item=dict(rng.choice(pool[group]));item['tools']=list(item['tools']);rng.shuffle(item['tools']);batch.append(item)
+            sampled.append(batch)
+        probe=dict(rows[0])
+        if stage=='text':probe['modality']='text'
+        elif stage=='align':probe['_prompt']='transcribe the speech. answer: ';probe['target_text']=probe['transcript']
+        probe_ids=policy.encode(probe['target_text'])+[policy.eos_token_id]
+        with torch.no_grad():probe_before=float(-policy.completion_logprobs(probe,probe_ids).mean())
+        while trainer.step<updates:
+            batch=sampled[trainer.step]
+            for ex in batch:
+                if stage=='text':ex['modality']='text'
+                elif stage=='align' and trainer.step%2==0:ex['_prompt']='transcribe the speech. answer: ';ex['target_text']=ex['transcript']
+                elif stage=='audio' and trainer.step%4==0:ex['_prompt']='transcribe the speech. answer: ';ex['target_text']=ex['transcript']
+            result=trainer.grpo_step(batch) if objective=='grpo' else trainer.sft_step(batch)
+            print(json.dumps({'run':args.run,**result}),flush=True)
+            if objective=='grpo':
+                serial=[[{k:(v.cpu().tolist() if torch.is_tensor(v) else v) for k,v in row.items()} for row in group] for group in trainer.last_rollouts]
+                append_json(directory/'rollouts.jsonl',{'step':trainer.step,'groups':serial})
+            if trainer.step%configuration.checkpoint_every==0 or stopping['requested']:trainer.save_checkpoint(directory/'checkpoint')
+            if stopping['requested']:
+                write_json(done,{'status':'interrupted','identity':identity,'next_command':f'nano-audio train --run {args.run} --profile {args.profile} --seed {args.seed}'})
+                raise SystemExit(75)
+        trainer.save_checkpoint(directory/'checkpoint')
+        resumed=trainer.load_checkpoint(directory/'checkpoint')
+        resume_verified=resumed['step']==trainer.step and resumed['sampler_position']==trainer.sampler_position
+        with torch.no_grad():probe_after=float(-policy.completion_logprobs(probe,probe_ids).mean())
+        write_json(directory/'probe.json',{'id':probe['id'],'target_ids':probe_ids,'before_response_nll':probe_before,'after_response_nll':probe_after,'interpretation':'teacher-forced diagnostic, not speech-understanding accuracy'})
+        # Smoke held-out dev only. Main final evaluation is an explicit separate command.
+        dev_pool=records(args.profile,'dev');dev_by_group={}
+        for ex in dev_pool:dev_by_group.setdefault(ex['utterance_group_id'],ex)
+        dev=list(dev_by_group.values())[:2 if args.profile=='smoke' else 16]
+        predictions=[]
+        for ex in dev:
+            output=policy.generate(ex,{'max_new_tokens':128});predictions.append({'id':ex['id'],'utterance_group_id':ex['utterance_group_id'],'schema_family_id':ex['schema_family_id'],'source':ex['source'],'split':ex['split'],'output':output,**scoring(ex,output)})
+        from .evaluation.metrics import aggregate
+        write_json(directory/'dev_predictions.json',predictions)
+        result={'status':'completed','identity':identity,'profile':args.profile,'run':args.run,'updates':trainer.step,'resume_verified':resume_verified,'parent':cfg.get('parent'),'parent_seed':parent_seed if cfg.get('parent') else None,'parent_checkpoint_sha256':sha(parent) if cfg.get('parent') else None,'data_hash':data_hash,'manifest':policy.parameter_manifest(),'dev_metrics':aggregate(predictions),'warning':'smoke infrastructure evidence only' if args.profile=='smoke' else None,'rl_signal':'unverified; inspect reward-bearing groups' if objective=='grpo' else None}
+        write_json(done,result);return result
 
 def overfit(args):
     from .training.diagnostics import overfit_eight
