@@ -1,0 +1,426 @@
+GPU: Tesla V100-PCIE-32GB | Torch: 2.9.1+cu128 | W&B: 0.31.0
+wandb: [wandb.login()] Loaded credentials for https://api.forge.coreweave.com from /tc1home/UG/asoh014/.netrc.
+wandb: Currently logged in as: sleepydirt (team88_sc4001) to https://api.forge.coreweave.com. Use `wandb login --relogin` to force relogin
+wandb: setting up run x51pbw6e
+wandb: Tracking run with wandb version 0.31.0
+wandb: Run data is saved locally in /tc1home/UG/asoh014/sc4001_project/artifacts/wandb/73174/wandb/run-20261109_192736-x51pbw6e
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run S_P1-local_pilot-s17-73174
+wandb: ⭐️ View project at https://forge.coreweave.com/wandb/team88_sc4001/team88_sc4001
+wandb: 🚀 View run at https://forge.coreweave.com/wandb/team88_sc4001/team88_sc4001/runs/x51pbw6e
+{"run": "S_P1", "step": 1, "objective": "sft", "profile": "local_pilot", "loss": 6.038910627365112, "gradient_norm": 53.512123107910156, "examples": 4, "tokens": 131, "examples_seen": 4, "tokens_seen": 131, "elapsed_seconds": 3.0378256142139435, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [5e-06, 2.5e-05], "next_learning_rates": [1e-05, 5e-05], "peak_memory_bytes": 3269125120}
+{"run": "S_P1", "step": 2, "objective": "sft", "profile": "local_pilot", "loss": 5.81037974357605, "gradient_norm": 49.959739685058594, "examples": 4, "tokens": 156, "examples_seen": 8, "tokens_seen": 287, "elapsed_seconds": 0.7041257657110691, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1e-05, 5e-05], "next_learning_rates": [1.5000000000000002e-05, 7.500000000000001e-05], "peak_memory_bytes": 4355123200}
+{"run": "S_P1", "step": 3, "objective": "sft", "profile": "local_pilot", "loss": 5.590038537979126, "gradient_norm": 42.80446243286133, "examples": 4, "tokens": 138, "examples_seen": 12, "tokens_seen": 425, "elapsed_seconds": 0.6783887520432472, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.5000000000000002e-05, 7.500000000000001e-05], "next_learning_rates": [2e-05, 0.0001], "peak_memory_bytes": 4304434176}
+{"run": "S_P1", "step": 4, "objective": "sft", "profile": "local_pilot", "loss": 4.727391600608826, "gradient_norm": 28.995969772338867, "examples": 4, "tokens": 161, "examples_seen": 16, "tokens_seen": 586, "elapsed_seconds": 0.7101494390517473, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [2e-05, 0.0001], "next_learning_rates": [2e-05, 0.0001], "peak_memory_bytes": 4375764480}
+{"run": "S_P1", "step": 5, "objective": "sft", "profile": "local_pilot", "loss": 3.6814111471176147, "gradient_norm": 18.00495719909668, "examples": 4, "tokens": 129, "examples_seen": 20, "tokens_seen": 715, "elapsed_seconds": 0.6990917809307575, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [2e-05, 0.0001], "next_learning_rates": [1.9666666666666666e-05, 9.833333333333333e-05], "peak_memory_bytes": 4307392000}
+{"run": "S_P1", "step": 6, "objective": "sft", "profile": "local_pilot", "loss": 2.9398301243782043, "gradient_norm": 16.140016555786133, "examples": 4, "tokens": 144, "examples_seen": 24, "tokens_seen": 859, "elapsed_seconds": 0.6750462558120489, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.9666666666666666e-05, 9.833333333333333e-05], "next_learning_rates": [1.9333333333333333e-05, 9.666666666666667e-05], "peak_memory_bytes": 4310841344}
+{"run": "S_P1", "step": 7, "objective": "sft", "profile": "local_pilot", "loss": 2.6703089475631714, "gradient_norm": 15.581740379333496, "examples": 4, "tokens": 130, "examples_seen": 28, "tokens_seen": 989, "elapsed_seconds": 0.6780939009040594, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.9333333333333333e-05, 9.666666666666667e-05], "next_learning_rates": [1.9e-05, 9.5e-05], "peak_memory_bytes": 4308143104}
+{"run": "S_P1", "step": 8, "objective": "sft", "profile": "local_pilot", "loss": 2.26083642244339, "gradient_norm": 12.156488418579102, "examples": 4, "tokens": 144, "examples_seen": 32, "tokens_seen": 1133, "elapsed_seconds": 0.6153968758881092, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.9e-05, 9.5e-05], "next_learning_rates": [1.866666666666667e-05, 9.333333333333334e-05], "peak_memory_bytes": 4311537152}
+{"run": "S_P1", "step": 9, "objective": "sft", "profile": "local_pilot", "loss": 1.9260429441928864, "gradient_norm": 9.632735252380371, "examples": 4, "tokens": 143, "examples_seen": 36, "tokens_seen": 1276, "elapsed_seconds": 0.6828801408410072, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.866666666666667e-05, 9.333333333333334e-05], "next_learning_rates": [1.8333333333333333e-05, 9.166666666666667e-05], "peak_memory_bytes": 4308076544}
+{"run": "S_P1", "step": 10, "objective": "sft", "profile": "local_pilot", "loss": 1.6533434092998505, "gradient_norm": 8.702384948730469, "examples": 4, "tokens": 143, "examples_seen": 40, "tokens_seen": 1419, "elapsed_seconds": 0.6448469962924719, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.8333333333333333e-05, 9.166666666666667e-05], "next_learning_rates": [1.8e-05, 9e-05], "peak_memory_bytes": 4311170560}
+{"run": "S_P1", "step": 11, "objective": "sft", "profile": "local_pilot", "loss": 1.4057202339172363, "gradient_norm": 7.191458702087402, "examples": 4, "tokens": 142, "examples_seen": 44, "tokens_seen": 1561, "elapsed_seconds": 0.7034220583736897, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.8e-05, 9e-05], "next_learning_rates": [1.7666666666666668e-05, 8.833333333333333e-05], "peak_memory_bytes": 4311187968}
+{"run": "S_P1", "step": 12, "objective": "sft", "profile": "local_pilot", "loss": 1.2222705781459808, "gradient_norm": 7.6307525634765625, "examples": 4, "tokens": 136, "examples_seen": 48, "tokens_seen": 1697, "elapsed_seconds": 0.6749397106468678, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.7666666666666668e-05, 8.833333333333333e-05], "next_learning_rates": [1.7333333333333336e-05, 8.666666666666667e-05], "peak_memory_bytes": 4311887360}
+{"run": "S_P1", "step": 13, "objective": "sft", "profile": "local_pilot", "loss": 1.1074780821800232, "gradient_norm": 7.105608940124512, "examples": 4, "tokens": 142, "examples_seen": 52, "tokens_seen": 1839, "elapsed_seconds": 0.6432312168180943, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.7333333333333336e-05, 8.666666666666667e-05], "next_learning_rates": [1.7e-05, 8.5e-05], "peak_memory_bytes": 4312098304}
+{"run": "S_P1", "step": 14, "objective": "sft", "profile": "local_pilot", "loss": 0.9612955003976822, "gradient_norm": 6.111440658569336, "examples": 4, "tokens": 184, "examples_seen": 56, "tokens_seen": 2023, "elapsed_seconds": 0.6489644423127174, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.7e-05, 8.5e-05], "next_learning_rates": [1.6666666666666667e-05, 8.333333333333334e-05], "peak_memory_bytes": 4380771840}
+{"run": "S_P1", "step": 15, "objective": "sft", "profile": "local_pilot", "loss": 0.8073285669088364, "gradient_norm": 6.365856647491455, "examples": 4, "tokens": 157, "examples_seen": 60, "tokens_seen": 2180, "elapsed_seconds": 0.6919393762946129, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.6666666666666667e-05, 8.333333333333334e-05], "next_learning_rates": [1.6333333333333335e-05, 8.166666666666667e-05], "peak_memory_bytes": 4323325952}
+{"run": "S_P1", "step": 16, "objective": "sft", "profile": "local_pilot", "loss": 0.6388681828975677, "gradient_norm": 4.6541643142700195, "examples": 4, "tokens": 139, "examples_seen": 64, "tokens_seen": 2319, "elapsed_seconds": 0.6916917711496353, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.6333333333333335e-05, 8.166666666666667e-05], "next_learning_rates": [1.6000000000000003e-05, 8e-05], "peak_memory_bytes": 4303046656}
+{"run": "S_P1", "step": 17, "objective": "sft", "profile": "local_pilot", "loss": 0.590625137090683, "gradient_norm": 6.536971569061279, "examples": 4, "tokens": 130, "examples_seen": 68, "tokens_seen": 2449, "elapsed_seconds": 0.6659441776573658, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.6000000000000003e-05, 8e-05], "next_learning_rates": [1.5666666666666667e-05, 7.833333333333333e-05], "peak_memory_bytes": 4310639104}
+{"run": "S_P1", "step": 18, "objective": "sft", "profile": "local_pilot", "loss": 0.5562441423535347, "gradient_norm": 4.979879379272461, "examples": 4, "tokens": 123, "examples_seen": 72, "tokens_seen": 2572, "elapsed_seconds": 0.6945486646145582, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.5666666666666667e-05, 7.833333333333333e-05], "next_learning_rates": [1.5333333333333334e-05, 7.666666666666667e-05], "peak_memory_bytes": 4296104960}
+{"run": "S_P1", "step": 19, "objective": "sft", "profile": "local_pilot", "loss": 0.6048800572752953, "gradient_norm": 4.047166347503662, "examples": 4, "tokens": 171, "examples_seen": 76, "tokens_seen": 2743, "elapsed_seconds": 0.6513073295354843, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.5333333333333334e-05, 7.666666666666667e-05], "next_learning_rates": [1.5000000000000002e-05, 7.500000000000001e-05], "peak_memory_bytes": 4412722176}
+{"run": "S_P1", "step": 20, "objective": "sft", "profile": "local_pilot", "loss": 0.41671405732631683, "gradient_norm": 2.8643550872802734, "examples": 4, "tokens": 124, "examples_seen": 80, "tokens_seen": 2867, "elapsed_seconds": 0.6464070435613394, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.5000000000000002e-05, 7.500000000000001e-05], "next_learning_rates": [1.4666666666666666e-05, 7.333333333333333e-05], "peak_memory_bytes": 4313820160}
+{"run": "S_P1", "step": 21, "objective": "sft", "profile": "local_pilot", "loss": 0.5092592611908913, "gradient_norm": 4.13282585144043, "examples": 4, "tokens": 143, "examples_seen": 84, "tokens_seen": 3010, "elapsed_seconds": 0.6248692404478788, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.4666666666666666e-05, 7.333333333333333e-05], "next_learning_rates": [1.4333333333333334e-05, 7.166666666666667e-05], "peak_memory_bytes": 4313799168}
+{"run": "S_P1", "step": 22, "objective": "sft", "profile": "local_pilot", "loss": 0.45545274019241333, "gradient_norm": 3.585338592529297, "examples": 4, "tokens": 131, "examples_seen": 88, "tokens_seen": 3141, "elapsed_seconds": 0.6898583211004734, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.4333333333333334e-05, 7.166666666666667e-05], "next_learning_rates": [1.4e-05, 7e-05], "peak_memory_bytes": 4315235840}
+{"run": "S_P1", "step": 23, "objective": "sft", "profile": "local_pilot", "loss": 0.3963012173771858, "gradient_norm": 3.246587038040161, "examples": 4, "tokens": 139, "examples_seen": 92, "tokens_seen": 3280, "elapsed_seconds": 0.7063717357814312, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.4e-05, 7e-05], "next_learning_rates": [1.3666666666666667e-05, 6.833333333333333e-05], "peak_memory_bytes": 4314417664}
+{"run": "S_P1", "step": 24, "objective": "sft", "profile": "local_pilot", "loss": 0.4221936911344528, "gradient_norm": 2.951292037963867, "examples": 4, "tokens": 132, "examples_seen": 96, "tokens_seen": 3412, "elapsed_seconds": 0.7012691255658865, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.3666666666666667e-05, 6.833333333333333e-05], "next_learning_rates": [1.3333333333333333e-05, 6.666666666666667e-05], "peak_memory_bytes": 4317546496}
+{"run": "S_P1", "step": 25, "objective": "sft", "profile": "local_pilot", "loss": 0.553125225007534, "gradient_norm": 4.359705448150635, "examples": 4, "tokens": 189, "examples_seen": 100, "tokens_seen": 3601, "elapsed_seconds": 0.6727800220251083, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.3333333333333333e-05, 6.666666666666667e-05], "next_learning_rates": [1.3000000000000001e-05, 6.500000000000001e-05], "peak_memory_bytes": 4427921920}
+{"run": "S_P1", "step": 26, "objective": "sft", "profile": "local_pilot", "loss": 0.3095370903611183, "gradient_norm": 2.8327107429504395, "examples": 4, "tokens": 136, "examples_seen": 104, "tokens_seen": 3737, "elapsed_seconds": 0.6472007781267166, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.3000000000000001e-05, 6.500000000000001e-05], "next_learning_rates": [1.2666666666666667e-05, 6.333333333333333e-05], "peak_memory_bytes": 4315289088}
+{"run": "S_P1", "step": 27, "objective": "sft", "profile": "local_pilot", "loss": 0.3964085206389427, "gradient_norm": 3.345140218734741, "examples": 4, "tokens": 172, "examples_seen": 108, "tokens_seen": 3909, "elapsed_seconds": 0.6937530189752579, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.2666666666666667e-05, 6.333333333333333e-05], "next_learning_rates": [1.2333333333333334e-05, 6.166666666666667e-05], "peak_memory_bytes": 4410157568}
+{"run": "S_P1", "step": 28, "objective": "sft", "profile": "local_pilot", "loss": 0.5275811180472374, "gradient_norm": 4.377138137817383, "examples": 4, "tokens": 217, "examples_seen": 112, "tokens_seen": 4126, "elapsed_seconds": 0.6553956866264343, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.2333333333333334e-05, 6.166666666666667e-05], "next_learning_rates": [1.2e-05, 6e-05], "peak_memory_bytes": 4421017600}
+{"run": "S_P1", "step": 29, "objective": "sft", "profile": "local_pilot", "loss": 0.33372822403907776, "gradient_norm": 3.3809897899627686, "examples": 4, "tokens": 136, "examples_seen": 116, "tokens_seen": 4262, "elapsed_seconds": 0.6793699730187654, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.2e-05, 6e-05], "next_learning_rates": [1.1666666666666668e-05, 5.833333333333334e-05], "peak_memory_bytes": 4315749376}
+{"run": "S_P1", "step": 30, "objective": "sft", "profile": "local_pilot", "loss": 0.36849021166563034, "gradient_norm": 3.3069324493408203, "examples": 4, "tokens": 159, "examples_seen": 120, "tokens_seen": 4421, "elapsed_seconds": 0.6149883922189474, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.1666666666666668e-05, 5.833333333333334e-05], "next_learning_rates": [1.1333333333333334e-05, 5.666666666666667e-05], "peak_memory_bytes": 4419377152}
+{"run": "S_P1", "step": 31, "objective": "sft", "profile": "local_pilot", "loss": 0.3459320403635502, "gradient_norm": 4.012275218963623, "examples": 4, "tokens": 142, "examples_seen": 124, "tokens_seen": 4563, "elapsed_seconds": 0.6133235860615969, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.1333333333333334e-05, 5.666666666666667e-05], "next_learning_rates": [1.1000000000000001e-05, 5.500000000000001e-05], "peak_memory_bytes": 4317335552}
+{"run": "S_P1", "step": 32, "objective": "sft", "profile": "local_pilot", "loss": 0.26156841963529587, "gradient_norm": 3.0956227779388428, "examples": 4, "tokens": 134, "examples_seen": 128, "tokens_seen": 4697, "elapsed_seconds": 0.6513823010027409, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.1000000000000001e-05, 5.500000000000001e-05], "next_learning_rates": [1.0666666666666667e-05, 5.333333333333333e-05], "peak_memory_bytes": 4313076736}
+{"run": "S_P1", "step": 33, "objective": "sft", "profile": "local_pilot", "loss": 0.31476540863513947, "gradient_norm": 3.657325506210327, "examples": 4, "tokens": 127, "examples_seen": 132, "tokens_seen": 4824, "elapsed_seconds": 0.6189072653651237, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.0666666666666667e-05, 5.333333333333333e-05], "next_learning_rates": [1.0333333333333335e-05, 5.166666666666667e-05], "peak_memory_bytes": 4315447296}
+{"run": "S_P1", "step": 34, "objective": "sft", "profile": "local_pilot", "loss": 0.22920554876327515, "gradient_norm": 3.5139710903167725, "examples": 4, "tokens": 126, "examples_seen": 136, "tokens_seen": 4950, "elapsed_seconds": 0.6348187569528818, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.0333333333333335e-05, 5.166666666666667e-05], "next_learning_rates": [1e-05, 5e-05], "peak_memory_bytes": 4315601920}
+{"run": "S_P1", "step": 35, "objective": "sft", "profile": "local_pilot", "loss": 0.3066527955234051, "gradient_norm": 3.158782958984375, "examples": 4, "tokens": 171, "examples_seen": 140, "tokens_seen": 5121, "elapsed_seconds": 0.6695291008800268, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1e-05, 5e-05], "next_learning_rates": [9.666666666666667e-06, 4.8333333333333334e-05], "peak_memory_bytes": 4420227584}
+{"run": "S_P1", "step": 36, "objective": "sft", "profile": "local_pilot", "loss": 0.285127367824316, "gradient_norm": 2.6799988746643066, "examples": 4, "tokens": 133, "examples_seen": 144, "tokens_seen": 5254, "elapsed_seconds": 0.6589232012629509, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [9.666666666666667e-06, 4.8333333333333334e-05], "next_learning_rates": [9.333333333333334e-06, 4.666666666666667e-05], "peak_memory_bytes": 4307840000}
+{"run": "S_P1", "step": 37, "objective": "sft", "profile": "local_pilot", "loss": 0.3676091283559799, "gradient_norm": 3.7029001712799072, "examples": 4, "tokens": 145, "examples_seen": 148, "tokens_seen": 5399, "elapsed_seconds": 0.6870123650878668, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [9.333333333333334e-06, 4.666666666666667e-05], "next_learning_rates": [9e-06, 4.5e-05], "peak_memory_bytes": 4318714880}
+{"run": "S_P1", "step": 38, "objective": "sft", "profile": "local_pilot", "loss": 0.35353948548436165, "gradient_norm": 4.4070844650268555, "examples": 4, "tokens": 145, "examples_seen": 152, "tokens_seen": 5544, "elapsed_seconds": 0.6554583832621574, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [9e-06, 4.5e-05], "next_learning_rates": [8.666666666666668e-06, 4.3333333333333334e-05], "peak_memory_bytes": 4314957312}
+{"run": "S_P1", "step": 39, "objective": "sft", "profile": "local_pilot", "loss": 0.3714957423508167, "gradient_norm": 3.3830487728118896, "examples": 4, "tokens": 159, "examples_seen": 156, "tokens_seen": 5703, "elapsed_seconds": 0.7341230008751154, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [8.666666666666668e-06, 4.3333333333333334e-05], "next_learning_rates": [8.333333333333334e-06, 4.166666666666667e-05], "peak_memory_bytes": 4420730368}
+{"run": "S_P1", "step": 40, "objective": "sft", "profile": "local_pilot", "loss": 0.2232530601322651, "gradient_norm": 2.6581077575683594, "examples": 4, "tokens": 137, "examples_seen": 160, "tokens_seen": 5840, "elapsed_seconds": 0.6768295336514711, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [8.333333333333334e-06, 4.166666666666667e-05], "next_learning_rates": [8.000000000000001e-06, 4e-05], "peak_memory_bytes": 4319642624}
+{"run": "S_P1", "step": 41, "objective": "sft", "profile": "local_pilot", "loss": 0.2867441177368164, "gradient_norm": 3.1011626720428467, "examples": 4, "tokens": 172, "examples_seen": 164, "tokens_seen": 6012, "elapsed_seconds": 0.6282595098018646, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [8.000000000000001e-06, 4e-05], "next_learning_rates": [7.666666666666667e-06, 3.8333333333333334e-05], "peak_memory_bytes": 4433246720}
+{"run": "S_P1", "step": 42, "objective": "sft", "profile": "local_pilot", "loss": 0.20227652043104172, "gradient_norm": 2.2420263290405273, "examples": 4, "tokens": 133, "examples_seen": 168, "tokens_seen": 6145, "elapsed_seconds": 0.6105605773627758, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [7.666666666666667e-06, 3.8333333333333334e-05], "next_learning_rates": [7.333333333333333e-06, 3.6666666666666666e-05], "peak_memory_bytes": 4315396096}
+{"run": "S_P1", "step": 43, "objective": "sft", "profile": "local_pilot", "loss": 0.2450542189180851, "gradient_norm": 3.4438045024871826, "examples": 4, "tokens": 129, "examples_seen": 172, "tokens_seen": 6274, "elapsed_seconds": 0.5899116192013025, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [7.333333333333333e-06, 3.6666666666666666e-05], "next_learning_rates": [7e-06, 3.5e-05], "peak_memory_bytes": 4316503552}
+{"run": "S_P1", "step": 44, "objective": "sft", "profile": "local_pilot", "loss": 0.2960362173616886, "gradient_norm": 3.0866169929504395, "examples": 4, "tokens": 168, "examples_seen": 176, "tokens_seen": 6442, "elapsed_seconds": 0.5845960732549429, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [7e-06, 3.5e-05], "next_learning_rates": [6.666666666666667e-06, 3.3333333333333335e-05], "peak_memory_bytes": 4393485312}
+{"run": "S_P1", "step": 45, "objective": "sft", "profile": "local_pilot", "loss": 0.3312297388911247, "gradient_norm": 3.3960511684417725, "examples": 4, "tokens": 192, "examples_seen": 180, "tokens_seen": 6634, "elapsed_seconds": 0.5947475712746382, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [6.666666666666667e-06, 3.3333333333333335e-05], "next_learning_rates": [6.333333333333333e-06, 3.1666666666666666e-05], "peak_memory_bytes": 4426762752}
+{"run": "S_P1", "step": 46, "objective": "sft", "profile": "local_pilot", "loss": 0.3220978267490864, "gradient_norm": 5.176351547241211, "examples": 4, "tokens": 161, "examples_seen": 184, "tokens_seen": 6795, "elapsed_seconds": 0.5827459394931793, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [6.333333333333333e-06, 3.1666666666666666e-05], "next_learning_rates": [6e-06, 3e-05], "peak_memory_bytes": 4326245888}
+{"run": "S_P1", "step": 47, "objective": "sft", "profile": "local_pilot", "loss": 0.2498428113758564, "gradient_norm": 2.9380698204040527, "examples": 4, "tokens": 142, "examples_seen": 188, "tokens_seen": 6937, "elapsed_seconds": 0.5797230023890734, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [6e-06, 3e-05], "next_learning_rates": [5.666666666666667e-06, 2.8333333333333335e-05], "peak_memory_bytes": 4320001536}
+{"run": "S_P1", "step": 48, "objective": "sft", "profile": "local_pilot", "loss": 0.21762226149439812, "gradient_norm": 2.7816569805145264, "examples": 4, "tokens": 139, "examples_seen": 192, "tokens_seen": 7076, "elapsed_seconds": 0.5527156554162502, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [5.666666666666667e-06, 2.8333333333333335e-05], "next_learning_rates": [5.333333333333334e-06, 2.6666666666666667e-05], "peak_memory_bytes": 4320391680}
+{"run": "S_P1", "step": 49, "objective": "sft", "profile": "local_pilot", "loss": 0.2036195769906044, "gradient_norm": 2.4708714485168457, "examples": 4, "tokens": 133, "examples_seen": 196, "tokens_seen": 7209, "elapsed_seconds": 0.6208578199148178, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [5.333333333333334e-06, 2.6666666666666667e-05], "next_learning_rates": [5e-06, 2.5e-05], "peak_memory_bytes": 4316942336}
+{"run": "S_P1", "step": 50, "objective": "sft", "profile": "local_pilot", "loss": 0.23821793496608734, "gradient_norm": 2.8775689601898193, "examples": 4, "tokens": 129, "examples_seen": 200, "tokens_seen": 7338, "elapsed_seconds": 0.625635651871562, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [5e-06, 2.5e-05], "next_learning_rates": [4.666666666666667e-06, 2.3333333333333336e-05], "peak_memory_bytes": 4323197952}
+{"run": "S_P1", "step": 51, "objective": "sft", "profile": "local_pilot", "loss": 0.18198126554489136, "gradient_norm": 2.063197135925293, "examples": 4, "tokens": 169, "examples_seen": 204, "tokens_seen": 7507, "elapsed_seconds": 0.6498918384313583, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [4.666666666666667e-06, 2.3333333333333336e-05], "next_learning_rates": [4.333333333333334e-06, 2.1666666666666667e-05], "peak_memory_bytes": 4432357888}
+{"run": "S_P1", "step": 52, "objective": "sft", "profile": "local_pilot", "loss": 0.2608468011021614, "gradient_norm": 3.5066680908203125, "examples": 4, "tokens": 136, "examples_seen": 208, "tokens_seen": 7643, "elapsed_seconds": 0.6460076570510864, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [4.333333333333334e-06, 2.1666666666666667e-05], "next_learning_rates": [4.000000000000001e-06, 2e-05], "peak_memory_bytes": 4323739136}
+{"run": "S_P1", "step": 53, "objective": "sft", "profile": "local_pilot", "loss": 0.2929050996899605, "gradient_norm": 3.3255393505096436, "examples": 4, "tokens": 184, "examples_seen": 212, "tokens_seen": 7827, "elapsed_seconds": 0.6161631271243095, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [4.000000000000001e-06, 2e-05], "next_learning_rates": [3.6666666666666666e-06, 1.8333333333333333e-05], "peak_memory_bytes": 4422820864}
+{"run": "S_P1", "step": 54, "objective": "sft", "profile": "local_pilot", "loss": 0.2600208781659603, "gradient_norm": 3.5517492294311523, "examples": 4, "tokens": 140, "examples_seen": 216, "tokens_seen": 7967, "elapsed_seconds": 0.6453121453523636, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [3.6666666666666666e-06, 1.8333333333333333e-05], "next_learning_rates": [3.3333333333333333e-06, 1.6666666666666667e-05], "peak_memory_bytes": 4318668288}
+{"run": "S_P1", "step": 55, "objective": "sft", "profile": "local_pilot", "loss": 0.19430549442768097, "gradient_norm": 2.8173391819000244, "examples": 4, "tokens": 130, "examples_seen": 220, "tokens_seen": 8097, "elapsed_seconds": 0.6792746558785439, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [3.3333333333333333e-06, 1.6666666666666667e-05], "next_learning_rates": [3e-06, 1.5e-05], "peak_memory_bytes": 4318256640}
+{"run": "S_P1", "step": 56, "objective": "sft", "profile": "local_pilot", "loss": 0.23296992480754852, "gradient_norm": 2.6908228397369385, "examples": 4, "tokens": 172, "examples_seen": 224, "tokens_seen": 8269, "elapsed_seconds": 0.6143394578248262, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [3e-06, 1.5e-05], "next_learning_rates": [2.666666666666667e-06, 1.3333333333333333e-05], "peak_memory_bytes": 4328111616}
+{"run": "S_P1", "step": 57, "objective": "sft", "profile": "local_pilot", "loss": 0.16417015716433525, "gradient_norm": 2.4683327674865723, "examples": 4, "tokens": 138, "examples_seen": 228, "tokens_seen": 8407, "elapsed_seconds": 0.6838891860097647, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [2.666666666666667e-06, 1.3333333333333333e-05], "next_learning_rates": [2.3333333333333336e-06, 1.1666666666666668e-05], "peak_memory_bytes": 4325726720}
+{"run": "S_P1", "step": 58, "objective": "sft", "profile": "local_pilot", "loss": 0.16073406115174294, "gradient_norm": 2.1374988555908203, "examples": 4, "tokens": 131, "examples_seen": 232, "tokens_seen": 8538, "elapsed_seconds": 0.5837309770286083, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [2.3333333333333336e-06, 1.1666666666666668e-05], "next_learning_rates": [2.0000000000000003e-06, 1e-05], "peak_memory_bytes": 4323738624}
+{"run": "S_P1", "step": 59, "objective": "sft", "profile": "local_pilot", "loss": 0.18007785454392433, "gradient_norm": 2.333130121231079, "examples": 4, "tokens": 143, "examples_seen": 236, "tokens_seen": 8681, "elapsed_seconds": 0.711343901231885, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [2.0000000000000003e-06, 1e-05], "next_learning_rates": [1.6666666666666667e-06, 8.333333333333334e-06], "peak_memory_bytes": 4322767360}
+{"run": "S_P1", "step": 60, "objective": "sft", "profile": "local_pilot", "loss": 0.18763156794011593, "gradient_norm": 2.6884326934814453, "examples": 4, "tokens": 137, "examples_seen": 240, "tokens_seen": 8818, "elapsed_seconds": 0.6779022589325905, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.6666666666666667e-06, 8.333333333333334e-06], "next_learning_rates": [1.3333333333333334e-06, 6.666666666666667e-06], "peak_memory_bytes": 4323829760}
+{"run": "S_P1", "step": 61, "objective": "sft", "profile": "local_pilot", "loss": 0.2075783610343933, "gradient_norm": 2.6563608646392822, "examples": 4, "tokens": 136, "examples_seen": 244, "tokens_seen": 8954, "elapsed_seconds": 0.6703930329531431, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.3333333333333334e-06, 6.666666666666667e-06], "next_learning_rates": [1.0000000000000002e-06, 5e-06], "peak_memory_bytes": 4323308544}
+{"run": "S_P1", "step": 62, "objective": "sft", "profile": "local_pilot", "loss": 0.26688046008348465, "gradient_norm": 2.6121954917907715, "examples": 4, "tokens": 197, "examples_seen": 248, "tokens_seen": 9151, "elapsed_seconds": 0.6196411531418562, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [1.0000000000000002e-06, 5e-06], "next_learning_rates": [6.666666666666667e-07, 3.3333333333333333e-06], "peak_memory_bytes": 4446025728}
+{"run": "S_P1", "step": 63, "objective": "sft", "profile": "local_pilot", "loss": 0.16628828085958958, "gradient_norm": 2.0401766300201416, "examples": 4, "tokens": 138, "examples_seen": 252, "tokens_seen": 9289, "elapsed_seconds": 0.6135146245360374, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [6.666666666666667e-07, 3.3333333333333333e-06], "next_learning_rates": [3.3333333333333335e-07, 1.6666666666666667e-06], "peak_memory_bytes": 4327374336}
+{"run": "S_P1", "step": 64, "objective": "sft", "profile": "local_pilot", "loss": 0.17667934112250805, "gradient_norm": 2.6879868507385254, "examples": 4, "tokens": 133, "examples_seen": 256, "tokens_seen": 9422, "elapsed_seconds": 0.634843897074461, "precision": "fp16", "loss_scale": 128.0, "reference_identity": null, "learning_rates": [3.3333333333333335e-07, 1.6666666666666667e-06], "next_learning_rates": [0.0, 0.0], "peak_memory_bytes": 4323022336}
+wandb: updating run metadata
+wandb: uploading output.log; uploading wandb-summary.json; uploading config.yaml; uploading summary
+wandb: uploading wandb-summary.json; uploading config.yaml
+wandb: uploading config.yaml
+wandb: 
+wandb: Run history:
+wandb:   train/elapsed_seconds █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:          train/examples ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:     train/examples_seen ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇▇██
+wandb:     train/gradient_norm █▇▅▃▃▂▂▂▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:              train/loss ██▆▄▄▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:        train/loss_scale ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:        train/lr_group_0 ▃███▇▇▇▇▇▇▆▆▆▆▆▆▆▅▅▅▄▄▄▄▄▄▃▃▃▃▃▃▃▃▂▂▂▂▁▁
+wandb:        train/lr_group_1 ▃▆███▇▇▇▇▇▇▆▆▆▆▆▅▅▅▅▅▄▄▄▄▃▃▃▃▃▃▃▂▂▂▂▁▁▁▁
+wandb: train/peak_memory_bytes ▁▇▇█▇▇▇▇▇▇█▇▇▇▇▇▇▇█▇▇█▇▇▇█▇▇▇▇▇▇▇▇▇▇▇▇▇█
+wandb:            train/tokens ▂▃▂▁▃▃▂▂▂▆▂▁▅▁▂▆▂█▂▄▅▃▃▂▅▁▆▄▂▂▄▆▂▅▂▂▂▂▇▂
+wandb:                      +3 ...
+wandb: 
+wandb: Run summary:
+wandb:   train/elapsed_seconds 0.63484
+wandb:          train/examples 4
+wandb:     train/examples_seen 256
+wandb:     train/gradient_norm 2.68799
+wandb:              train/loss 0.17668
+wandb:        train/loss_scale 128
+wandb:        train/lr_group_0 0.0
+wandb:        train/lr_group_1 0.0
+wandb: train/peak_memory_bytes 4323022336
+wandb:            train/tokens 133
+wandb:                      +3 ...
+wandb: 
+wandb: 🚀 View run S_P1-local_pilot-s17-73174 at: https://forge.coreweave.com/wandb/team88_sc4001/team88_sc4001/runs/x51pbw6e
+wandb: ⭐️ View project at: https://forge.coreweave.com/wandb/team88_sc4001/team88_sc4001
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./artifacts/wandb/73174/wandb/run-20261109_192736-x51pbw6e/logs
+{
+  "status": "completed",
+  "identity": "873f034da17dbcd47de75fc64ed538e848e822af149f9a1c91c7a39516beba98",
+  "profile": "local_pilot",
+  "run": "S_P1",
+  "updates": 64,
+  "resume_verified": true,
+  "parent": null,
+  "parent_seed": null,
+  "parent_checkpoint_sha256": null,
+  "data_hash": "3a5aa83a36a1b03a51d7439b1852ede68397257241130ec19ae45cc2fe183e35",
+  "manifest": {
+    "model_id": "samsone_134m_published",
+    "architecture_fingerprint": "dcd8799041eeaca58e93f9adeb20f0243f0bdb015d6ca9b2bcbc72a2e3324515",
+    "vocabulary_map_hash": "ba75f19689c52c9759981af99d79b693d88b6a9f6588daf8ea79afc26b351c52",
+    "total_parameters": 134614464,
+    "trainable_parameters": 126406080,
+    "trainable_names": [
+      "sep_token",
+      "projector.linear1.weight",
+      "projector.linear2.weight",
+      "projector.layer_norm.weight",
+      "projector.layer_norm.bias",
+      "text_model.model.model.embed_tokens.weight",
+      "text_model.model.model.layers.0.self_attn.q_proj.weight",
+      "text_model.model.model.layers.0.self_attn.k_proj.weight",
+      "text_model.model.model.layers.0.self_attn.v_proj.weight",
+      "text_model.model.model.layers.0.self_attn.o_proj.weight",
+      "text_model.model.model.layers.0.mlp.gate_proj.weight",
+      "text_model.model.model.layers.0.mlp.up_proj.weight",
+      "text_model.model.model.layers.0.mlp.down_proj.weight",
+      "text_model.model.model.layers.0.input_layernorm.weight",
+      "text_model.model.model.layers.0.post_attention_layernorm.weight",
+      "text_model.model.model.layers.1.self_attn.q_proj.weight",
+      "text_model.model.model.layers.1.self_attn.k_proj.weight",
+      "text_model.model.model.layers.1.self_attn.v_proj.weight",
+      "text_model.model.model.layers.1.self_attn.o_proj.weight",
+      "text_model.model.model.layers.1.mlp.gate_proj.weight",
+      "text_model.model.model.layers.1.mlp.up_proj.weight",
+      "text_model.model.model.layers.1.mlp.down_proj.weight",
+      "text_model.model.model.layers.1.input_layernorm.weight",
+      "text_model.model.model.layers.1.post_attention_layernorm.weight",
+      "text_model.model.model.layers.2.self_attn.q_proj.weight",
+      "text_model.model.model.layers.2.self_attn.k_proj.weight",
+      "text_model.model.model.layers.2.self_attn.v_proj.weight",
+      "text_model.model.model.layers.2.self_attn.o_proj.weight",
+      "text_model.model.model.layers.2.mlp.gate_proj.weight",
+      "text_model.model.model.layers.2.mlp.up_proj.weight",
+      "text_model.model.model.layers.2.mlp.down_proj.weight",
+      "text_model.model.model.layers.2.input_layernorm.weight",
+      "text_model.model.model.layers.2.post_attention_layernorm.weight",
+      "text_model.model.model.layers.3.self_attn.q_proj.weight",
+      "text_model.model.model.layers.3.self_attn.k_proj.weight",
+      "text_model.model.model.layers.3.self_attn.v_proj.weight",
+      "text_model.model.model.layers.3.self_attn.o_proj.weight",
+      "text_model.model.model.layers.3.mlp.gate_proj.weight",
+      "text_model.model.model.layers.3.mlp.up_proj.weight",
+      "text_model.model.model.layers.3.mlp.down_proj.weight",
+      "text_model.model.model.layers.3.input_layernorm.weight",
+      "text_model.model.model.layers.3.post_attention_layernorm.weight",
+      "text_model.model.model.layers.4.self_attn.q_proj.weight",
+      "text_model.model.model.layers.4.self_attn.k_proj.weight",
+      "text_model.model.model.layers.4.self_attn.v_proj.weight",
+      "text_model.model.model.layers.4.self_attn.o_proj.weight",
+      "text_model.model.model.layers.4.mlp.gate_proj.weight",
+      "text_model.model.model.layers.4.mlp.up_proj.weight",
+      "text_model.model.model.layers.4.mlp.down_proj.weight",
+      "text_model.model.model.layers.4.input_layernorm.weight",
+      "text_model.model.model.layers.4.post_attention_layernorm.weight",
+      "text_model.model.model.layers.5.self_attn.q_proj.weight",
+      "text_model.model.model.layers.5.self_attn.k_proj.weight",
+      "text_model.model.model.layers.5.self_attn.v_proj.weight",
+      "text_model.model.model.layers.5.self_attn.o_proj.weight",
+      "text_model.model.model.layers.5.mlp.gate_proj.weight",
+      "text_model.model.model.layers.5.mlp.up_proj.weight",
+      "text_model.model.model.layers.5.mlp.down_proj.weight",
+      "text_model.model.model.layers.5.input_layernorm.weight",
+      "text_model.model.model.layers.5.post_attention_layernorm.weight",
+      "text_model.model.model.layers.6.self_attn.q_proj.weight",
+      "text_model.model.model.layers.6.self_attn.k_proj.weight",
+      "text_model.model.model.layers.6.self_attn.v_proj.weight",
+      "text_model.model.model.layers.6.self_attn.o_proj.weight",
+      "text_model.model.model.layers.6.mlp.gate_proj.weight",
+      "text_model.model.model.layers.6.mlp.up_proj.weight",
+      "text_model.model.model.layers.6.mlp.down_proj.weight",
+      "text_model.model.model.layers.6.input_layernorm.weight",
+      "text_model.model.model.layers.6.post_attention_layernorm.weight",
+      "text_model.model.model.layers.7.self_attn.q_proj.weight",
+      "text_model.model.model.layers.7.self_attn.k_proj.weight",
+      "text_model.model.model.layers.7.self_attn.v_proj.weight",
+      "text_model.model.model.layers.7.self_attn.o_proj.weight",
+      "text_model.model.model.layers.7.mlp.gate_proj.weight",
+      "text_model.model.model.layers.7.mlp.up_proj.weight",
+      "text_model.model.model.layers.7.mlp.down_proj.weight",
+      "text_model.model.model.layers.7.input_layernorm.weight",
+      "text_model.model.model.layers.7.post_attention_layernorm.weight",
+      "text_model.model.model.layers.8.self_attn.q_proj.weight",
+      "text_model.model.model.layers.8.self_attn.k_proj.weight",
+      "text_model.model.model.layers.8.self_attn.v_proj.weight",
+      "text_model.model.model.layers.8.self_attn.o_proj.weight",
+      "text_model.model.model.layers.8.mlp.gate_proj.weight",
+      "text_model.model.model.layers.8.mlp.up_proj.weight",
+      "text_model.model.model.layers.8.mlp.down_proj.weight",
+      "text_model.model.model.layers.8.input_layernorm.weight",
+      "text_model.model.model.layers.8.post_attention_layernorm.weight",
+      "text_model.model.model.layers.9.self_attn.q_proj.weight",
+      "text_model.model.model.layers.9.self_attn.k_proj.weight",
+      "text_model.model.model.layers.9.self_attn.v_proj.weight",
+      "text_model.model.model.layers.9.self_attn.o_proj.weight",
+      "text_model.model.model.layers.9.mlp.gate_proj.weight",
+      "text_model.model.model.layers.9.mlp.up_proj.weight",
+      "text_model.model.model.layers.9.mlp.down_proj.weight",
+      "text_model.model.model.layers.9.input_layernorm.weight",
+      "text_model.model.model.layers.9.post_attention_layernorm.weight",
+      "text_model.model.model.layers.10.self_attn.q_proj.weight",
+      "text_model.model.model.layers.10.self_attn.k_proj.weight",
+      "text_model.model.model.layers.10.self_attn.v_proj.weight",
+      "text_model.model.model.layers.10.self_attn.o_proj.weight",
+      "text_model.model.model.layers.10.mlp.gate_proj.weight",
+      "text_model.model.model.layers.10.mlp.up_proj.weight",
+      "text_model.model.model.layers.10.mlp.down_proj.weight",
+      "text_model.model.model.layers.10.input_layernorm.weight",
+      "text_model.model.model.layers.10.post_attention_layernorm.weight",
+      "text_model.model.model.layers.11.self_attn.q_proj.weight",
+      "text_model.model.model.layers.11.self_attn.k_proj.weight",
+      "text_model.model.model.layers.11.self_attn.v_proj.weight",
+      "text_model.model.model.layers.11.self_attn.o_proj.weight",
+      "text_model.model.model.layers.11.mlp.gate_proj.weight",
+      "text_model.model.model.layers.11.mlp.up_proj.weight",
+      "text_model.model.model.layers.11.mlp.down_proj.weight",
+      "text_model.model.model.layers.11.input_layernorm.weight",
+      "text_model.model.model.layers.11.post_attention_layernorm.weight",
+      "text_model.model.model.layers.12.self_attn.q_proj.weight",
+      "text_model.model.model.layers.12.self_attn.k_proj.weight",
+      "text_model.model.model.layers.12.self_attn.v_proj.weight",
+      "text_model.model.model.layers.12.self_attn.o_proj.weight",
+      "text_model.model.model.layers.12.mlp.gate_proj.weight",
+      "text_model.model.model.layers.12.mlp.up_proj.weight",
+      "text_model.model.model.layers.12.mlp.down_proj.weight",
+      "text_model.model.model.layers.12.input_layernorm.weight",
+      "text_model.model.model.layers.12.post_attention_layernorm.weight",
+      "text_model.model.model.layers.13.self_attn.q_proj.weight",
+      "text_model.model.model.layers.13.self_attn.k_proj.weight",
+      "text_model.model.model.layers.13.self_attn.v_proj.weight",
+      "text_model.model.model.layers.13.self_attn.o_proj.weight",
+      "text_model.model.model.layers.13.mlp.gate_proj.weight",
+      "text_model.model.model.layers.13.mlp.up_proj.weight",
+      "text_model.model.model.layers.13.mlp.down_proj.weight",
+      "text_model.model.model.layers.13.input_layernorm.weight",
+      "text_model.model.model.layers.13.post_attention_layernorm.weight",
+      "text_model.model.model.layers.14.self_attn.q_proj.weight",
+      "text_model.model.model.layers.14.self_attn.k_proj.weight",
+      "text_model.model.model.layers.14.self_attn.v_proj.weight",
+      "text_model.model.model.layers.14.self_attn.o_proj.weight",
+      "text_model.model.model.layers.14.mlp.gate_proj.weight",
+      "text_model.model.model.layers.14.mlp.up_proj.weight",
+      "text_model.model.model.layers.14.mlp.down_proj.weight",
+      "text_model.model.model.layers.14.input_layernorm.weight",
+      "text_model.model.model.layers.14.post_attention_layernorm.weight",
+      "text_model.model.model.layers.15.self_attn.q_proj.weight",
+      "text_model.model.model.layers.15.self_attn.k_proj.weight",
+      "text_model.model.model.layers.15.self_attn.v_proj.weight",
+      "text_model.model.model.layers.15.self_attn.o_proj.weight",
+      "text_model.model.model.layers.15.mlp.gate_proj.weight",
+      "text_model.model.model.layers.15.mlp.up_proj.weight",
+      "text_model.model.model.layers.15.mlp.down_proj.weight",
+      "text_model.model.model.layers.15.input_layernorm.weight",
+      "text_model.model.model.layers.15.post_attention_layernorm.weight",
+      "text_model.model.model.layers.16.self_attn.q_proj.weight",
+      "text_model.model.model.layers.16.self_attn.k_proj.weight",
+      "text_model.model.model.layers.16.self_attn.v_proj.weight",
+      "text_model.model.model.layers.16.self_attn.o_proj.weight",
+      "text_model.model.model.layers.16.mlp.gate_proj.weight",
+      "text_model.model.model.layers.16.mlp.up_proj.weight",
+      "text_model.model.model.layers.16.mlp.down_proj.weight",
+      "text_model.model.model.layers.16.input_layernorm.weight",
+      "text_model.model.model.layers.16.post_attention_layernorm.weight",
+      "text_model.model.model.layers.17.self_attn.q_proj.weight",
+      "text_model.model.model.layers.17.self_attn.k_proj.weight",
+      "text_model.model.model.layers.17.self_attn.v_proj.weight",
+      "text_model.model.model.layers.17.self_attn.o_proj.weight",
+      "text_model.model.model.layers.17.mlp.gate_proj.weight",
+      "text_model.model.model.layers.17.mlp.up_proj.weight",
+      "text_model.model.model.layers.17.mlp.down_proj.weight",
+      "text_model.model.model.layers.17.input_layernorm.weight",
+      "text_model.model.model.layers.17.post_attention_layernorm.weight",
+      "text_model.model.model.layers.18.self_attn.q_proj.weight",
+      "text_model.model.model.layers.18.self_attn.k_proj.weight",
+      "text_model.model.model.layers.18.self_attn.v_proj.weight",
+      "text_model.model.model.layers.18.self_attn.o_proj.weight",
+      "text_model.model.model.layers.18.mlp.gate_proj.weight",
+      "text_model.model.model.layers.18.mlp.up_proj.weight",
+      "text_model.model.model.layers.18.mlp.down_proj.weight",
+      "text_model.model.model.layers.18.input_layernorm.weight",
+      "text_model.model.model.layers.18.post_attention_layernorm.weight",
+      "text_model.model.model.layers.19.self_attn.q_proj.weight",
+      "text_model.model.model.layers.19.self_attn.k_proj.weight",
+      "text_model.model.model.layers.19.self_attn.v_proj.weight",
+      "text_model.model.model.layers.19.self_attn.o_proj.weight",
+      "text_model.model.model.layers.19.mlp.gate_proj.weight",
+      "text_model.model.model.layers.19.mlp.up_proj.weight",
+      "text_model.model.model.layers.19.mlp.down_proj.weight",
+      "text_model.model.model.layers.19.input_layernorm.weight",
+      "text_model.model.model.layers.19.post_attention_layernorm.weight",
+      "text_model.model.model.layers.20.self_attn.q_proj.weight",
+      "text_model.model.model.layers.20.self_attn.k_proj.weight",
+      "text_model.model.model.layers.20.self_attn.v_proj.weight",
+      "text_model.model.model.layers.20.self_attn.o_proj.weight",
+      "text_model.model.model.layers.20.mlp.gate_proj.weight",
+      "text_model.model.model.layers.20.mlp.up_proj.weight",
+      "text_model.model.model.layers.20.mlp.down_proj.weight",
+      "text_model.model.model.layers.20.input_layernorm.weight",
+      "text_model.model.model.layers.20.post_attention_layernorm.weight",
+      "text_model.model.model.layers.21.self_attn.q_proj.weight",
+      "text_model.model.model.layers.21.self_attn.k_proj.weight",
+      "text_model.model.model.layers.21.self_attn.v_proj.weight",
+      "text_model.model.model.layers.21.self_attn.o_proj.weight",
+      "text_model.model.model.layers.21.mlp.gate_proj.weight",
+      "text_model.model.model.layers.21.mlp.up_proj.weight",
+      "text_model.model.model.layers.21.mlp.down_proj.weight",
+      "text_model.model.model.layers.21.input_layernorm.weight",
+      "text_model.model.model.layers.21.post_attention_layernorm.weight",
+      "text_model.model.model.layers.22.self_attn.q_proj.weight",
+      "text_model.model.model.layers.22.self_attn.k_proj.weight",
+      "text_model.model.model.layers.22.self_attn.v_proj.weight",
+      "text_model.model.model.layers.22.self_attn.o_proj.weight",
+      "text_model.model.model.layers.22.mlp.gate_proj.weight",
+      "text_model.model.model.layers.22.mlp.up_proj.weight",
+      "text_model.model.model.layers.22.mlp.down_proj.weight",
+      "text_model.model.model.layers.22.input_layernorm.weight",
+      "text_model.model.model.layers.22.post_attention_layernorm.weight",
+      "text_model.model.model.layers.23.self_attn.q_proj.weight",
+      "text_model.model.model.layers.23.self_attn.k_proj.weight",
+      "text_model.model.model.layers.23.self_attn.v_proj.weight",
+      "text_model.model.model.layers.23.self_attn.o_proj.weight",
+      "text_model.model.model.layers.23.mlp.gate_proj.weight",
+      "text_model.model.model.layers.23.mlp.up_proj.weight",
+      "text_model.model.model.layers.23.mlp.down_proj.weight",
+      "text_model.model.model.layers.23.input_layernorm.weight",
+      "text_model.model.model.layers.23.post_attention_layernorm.weight",
+      "text_model.model.model.layers.24.self_attn.q_proj.weight",
+      "text_model.model.model.layers.24.self_attn.k_proj.weight",
+      "text_model.model.model.layers.24.self_attn.v_proj.weight",
+      "text_model.model.model.layers.24.self_attn.o_proj.weight",
+      "text_model.model.model.layers.24.mlp.gate_proj.weight",
+      "text_model.model.model.layers.24.mlp.up_proj.weight",
+      "text_model.model.model.layers.24.mlp.down_proj.weight",
+      "text_model.model.model.layers.24.input_layernorm.weight",
+      "text_model.model.model.layers.24.post_attention_layernorm.weight",
+      "text_model.model.model.layers.25.self_attn.q_proj.weight",
+      "text_model.model.model.layers.25.self_attn.k_proj.weight",
+      "text_model.model.model.layers.25.self_attn.v_proj.weight",
+      "text_model.model.model.layers.25.self_attn.o_proj.weight",
+      "text_model.model.model.layers.25.mlp.gate_proj.weight",
+      "text_model.model.model.layers.25.mlp.up_proj.weight",
+      "text_model.model.model.layers.25.mlp.down_proj.weight",
+      "text_model.model.model.layers.25.input_layernorm.weight",
+      "text_model.model.model.layers.25.post_attention_layernorm.weight",
+      "text_model.model.model.layers.26.self_attn.q_proj.weight",
+      "text_model.model.model.layers.26.self_attn.k_proj.weight",
+      "text_model.model.model.layers.26.self_attn.v_proj.weight",
+      "text_model.model.model.layers.26.self_attn.o_proj.weight",
+      "text_model.model.model.layers.26.mlp.gate_proj.weight",
+      "text_model.model.model.layers.26.mlp.up_proj.weight",
+      "text_model.model.model.layers.26.mlp.down_proj.weight",
+      "text_model.model.model.layers.26.input_layernorm.weight",
+      "text_model.model.model.layers.26.post_attention_layernorm.weight",
+      "text_model.model.model.layers.27.self_attn.q_proj.weight",
+      "text_model.model.model.layers.27.self_attn.k_proj.weight",
+      "text_model.model.model.layers.27.self_attn.v_proj.weight",
+      "text_model.model.model.layers.27.self_attn.o_proj.weight",
+      "text_model.model.model.layers.27.mlp.gate_proj.weight",
+      "text_model.model.model.layers.27.mlp.up_proj.weight",
+      "text_model.model.model.layers.27.mlp.down_proj.weight",
+      "text_model.model.model.layers.27.input_layernorm.weight",
+      "text_model.model.model.layers.27.post_attention_layernorm.weight",
+      "text_model.model.model.layers.28.self_attn.q_proj.weight",
+      "text_model.model.model.layers.28.self_attn.k_proj.weight",
+      "text_model.model.model.layers.28.self_attn.v_proj.weight",
+      "text_model.model.model.layers.28.self_attn.o_proj.weight",
+      "text_model.model.model.layers.28.mlp.gate_proj.weight",
+      "text_model.model.model.layers.28.mlp.up_proj.weight",
+      "text_model.model.model.layers.28.mlp.down_proj.weight",
+      "text_model.model.model.layers.28.input_layernorm.weight",
+      "text_model.model.model.layers.28.post_attention_layernorm.weight",
+      "text_model.model.model.layers.29.self_attn.q_proj.weight",
+      "text_model.model.model.layers.29.self_attn.k_proj.weight",
+      "text_model.model.model.layers.29.self_attn.v_proj.weight",
+      "text_model.model.model.layers.29.self_attn.o_proj.weight",
+      "text_model.model.model.layers.29.mlp.gate_proj.weight",
+      "text_model.model.model.layers.29.mlp.up_proj.weight",
+      "text_model.model.model.layers.29.mlp.down_proj.weight",
+      "text_model.model.model.layers.29.input_layernorm.weight",
+      "text_model.model.model.layers.29.post_attention_layernorm.weight",
+      "text_model.model.model.norm.weight"
+    ],
+    "provenance": {
+      "all_weights": "official Samsone release checkpoint"
+    },
+    "audio_encoder_frozen": true,
+    "tied_embeddings": true
+  },
+  "dev_metrics": {
+    "recordings": 16,
+    "groups": 16,
+    "exact": 0.0,
+    "valid": 0.0,
+    "tool_accuracy": 0.0,
+    "argument_precision": 0.0,
+    "argument_recall": 0.0,
+    "argument_f1": 0.0,
+    "joint_argument_accuracy": 0.0,
+    "ordered_program_success": 0.0
+  },
+  "warning": null,
+  "rl_signal": null
+}
