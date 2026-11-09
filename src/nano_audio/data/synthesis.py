@@ -67,9 +67,9 @@ def synthesize_groups(groups, snapshot_dir, output_dir, voices, revision, device
                     quality = audio_quality(samples, sr)
                     speed = old['speed']
             if quality is None:
-                voice_tensor = torch.load(root / 'voices' / (voice + '.pt'), weights_only=True, map_location=device)
+                voice_path = str(root / 'voices' / (voice + '.pt'))
                 for speed in speeds:
-                    chunks = list(pipeline(group['transcript'], voice=voice_tensor, speed=speed))
+                    chunks = list(pipeline(group['transcript'], voice=voice_path, speed=speed))
                     samples = np.concatenate([c[2].detach().cpu().numpy() for c in chunks if c[2] is not None]) if chunks else np.array([])
                     try: quality = audio_quality(samples, 24000)
                     except TaskError:
