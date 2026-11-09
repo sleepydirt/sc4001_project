@@ -12,7 +12,7 @@ bash scripts/bootstrap.sh
 .venv/bin/nano-audio download --profile smoke
 .venv/bin/nano-audio smoke-text
 .venv/bin/nano-audio smoke-audio
-.venv/bin/nano-audio prepare-data --profile smoke
+.venv/bin/nano-audio prepare-data --profile smoke --device cuda
 .venv/bin/nano-audio audit-data --profile smoke
 .venv/bin/nano-audio train --run S_P1 --profile smoke
 .venv/bin/nano-audio train --run S_P_SFT --profile smoke
