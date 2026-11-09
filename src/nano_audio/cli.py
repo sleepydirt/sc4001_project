@@ -73,7 +73,7 @@ def smoke_audio(args):
 
 def prepare(args):
     from .data.pipeline import prepare_data
-    return prepare_data(profile=args.profile,output_dir=ROOT/f'artifacts/data/{args.profile}',seed=args.seed)
+    return prepare_data(profile=args.profile,output_dir=ROOT/f'artifacts/data/{args.profile}',seed=args.seed, device='cpu' if args.device == 'auto' else args.device)
 
 def audit(args):
     from .data.synthetic import audit_splits
