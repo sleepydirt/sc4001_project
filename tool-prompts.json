@@ -1,0 +1,769 @@
+[
+  {
+    "catalog": "familiar",
+    "schema_family_id": "train_01",
+    "example_id": "38b295c2c0b79035c294",
+    "audio_path": "artifacts/semi_pilot/semi-v1/data/synthetic/0790cee31f2cb143698075c313a8da78118cdb4d7d873bbc48220d2d460a76cc.wav",
+    "transcript_for_review": "my request is to this time query the state of heater when ready",
+    "expected_answer_for_review": {
+      "calls": [
+        {
+          "name": "train_01_action_7",
+          "arguments": {
+            "field_0": "heater"
+          }
+        }
+      ]
+    },
+    "tools": [
+      {
+        "name": "train_01_action_0",
+        "description": "set device power on or off. field_0 is device; field_1 is state",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "field_0": {
+              "type": "string",
+              "enum": [
+                "kitchen_light",
+                "bedroom_light",
+                "speaker",
+                "radio",
+                "thermostat",
+                "heater"
+              ]
+            },
+            "field_1": {
+              "type": "string",
+              "enum": [
+                "on",
+                "off"
+              ]
+            }
+          },
+          "required": [
+            "field_0",
+            "field_1"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "train_01_action_1",
+        "description": "set light brightness. field_0 is device; field_1 is percent",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "field_0": {
+              "type": "string",
+              "enum": [
+                "kitchen_light",
+                "bedroom_light"
+              ]
+            },
+            "field_1": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          "required": [
+            "field_0",
+            "field_1"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "train_01_action_2",
+        "description": "set audio volume. field_0 is device; field_1 is percent",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "field_0": {
+              "type": "string",
+              "enum": [
+                "speaker",
+                "radio"
+              ]
+            },
+            "field_1": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          "required": [
+            "field_0",
+            "field_1"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "train_01_action_3",
+        "description": "set device temperature. field_0 is device; field_1 is celsius",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "field_0": {
+              "type": "string",
+              "enum": [
+                "thermostat",
+                "heater"
+              ]
+            },
+            "field_1": {
+              "type": "number",
+              "minimum": 5,
+              "maximum": 35
+            }
+          },
+          "required": [
+            "field_0",
+            "field_1"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "train_01_action_4",
+        "description": "start or replace a labelled countdown. field_0 is label; field_1 is seconds",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "field_0": {
+              "type": "string",
+              "enum": [
+                "tea",
+                "pasta",
+                "laundry"
+              ]
+            },
+            "field_1": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 86400
+            }
+          },
+          "required": [
+            "field_0",
+            "field_1"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "train_01_action_5",
+        "description": "cancel a labelled countdown. field_0 is label",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "field_0": {
+              "type": "string",
+              "enum": [
+                "tea",
+                "pasta",
+                "laundry"
+              ]
+            }
+          },
+          "required": [
+            "field_0"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "train_01_action_6",
+        "description": "set media playback state. field_0 is device; field_1 is state",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "field_0": {
+              "type": "string",
+              "enum": [
+                "speaker",
+                "radio"
+              ]
+            },
+            "field_1": {
+              "type": "string",
+              "enum": [
+                "playing",
+                "paused",
+                "stopped"
+              ]
+            }
+          },
+          "required": [
+            "field_0",
+            "field_1"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "train_01_action_7",
+        "description": "read device state. field_0 is device",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "field_0": {
+              "type": "string",
+              "enum": [
+                "kitchen_light",
+                "bedroom_light",
+                "speaker",
+                "radio",
+                "thermostat",
+                "heater"
+              ]
+            }
+          },
+          "required": [
+            "field_0"
+          ],
+          "additionalProperties": false
+        }
+      }
+    ],
+    "prompt": "return the requested calls as json using the supplied tools. tools:[{\"name\":\"train_01_action_0\",\"description\":\"set device power on or off. field_0 is device; field_1 is state\",\"parameters\":{\"type\":\"object\",\"properties\":{\"field_0\":{\"type\":\"string\",\"enum\":[\"kitchen_light\",\"bedroom_light\",\"speaker\",\"radio\",\"thermostat\",\"heater\"]},\"field_1\":{\"type\":\"string\",\"enum\":[\"on\",\"off\"]}},\"required\":[\"field_0\",\"field_1\"],\"additionalproperties\":false}},{\"name\":\"train_01_action_1\",\"description\":\"set light brightness. field_0 is device; field_1 is percent\",\"parameters\":{\"type\":\"object\",\"properties\":{\"field_0\":{\"type\":\"string\",\"enum\":[\"kitchen_light\",\"bedroom_light\"]},\"field_1\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":100}},\"required\":[\"field_0\",\"field_1\"],\"additionalproperties\":false}},{\"name\":\"train_01_action_2\",\"description\":\"set audio volume. field_0 is device; field_1 is percent\",\"parameters\":{\"type\":\"object\",\"properties\":{\"field_0\":{\"type\":\"string\",\"enum\":[\"speaker\",\"radio\"]},\"field_1\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":100}},\"required\":[\"field_0\",\"field_1\"],\"additionalproperties\":false}},{\"name\":\"train_01_action_3\",\"description\":\"set device temperature. field_0 is device; field_1 is celsius\",\"parameters\":{\"type\":\"object\",\"properties\":{\"field_0\":{\"type\":\"string\",\"enum\":[\"thermostat\",\"heater\"]},\"field_1\":{\"type\":\"number\",\"minimum\":5,\"maximum\":35}},\"required\":[\"field_0\",\"field_1\"],\"additionalproperties\":false}},{\"name\":\"train_01_action_4\",\"description\":\"start or replace a labelled countdown. field_0 is label; field_1 is seconds\",\"parameters\":{\"type\":\"object\",\"properties\":{\"field_0\":{\"type\":\"string\",\"enum\":[\"tea\",\"pasta\",\"laundry\"]},\"field_1\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":86400}},\"required\":[\"field_0\",\"field_1\"],\"additionalproperties\":false}},{\"name\":\"train_01_action_5\",\"description\":\"cancel a labelled countdown. field_0 is label\",\"parameters\":{\"type\":\"object\",\"properties\":{\"field_0\":{\"type\":\"string\",\"enum\":[\"tea\",\"pasta\",\"laundry\"]}},\"required\":[\"field_0\"],\"additionalproperties\":false}},{\"name\":\"train_01_action_6\",\"description\":\"set media playback state. field_0 is device; field_1 is state\",\"parameters\":{\"type\":\"object\",\"properties\":{\"field_0\":{\"type\":\"string\",\"enum\":[\"speaker\",\"radio\"]},\"field_1\":{\"type\":\"string\",\"enum\":[\"playing\",\"paused\",\"stopped\"]}},\"required\":[\"field_0\",\"field_1\"],\"additionalproperties\":false}},{\"name\":\"train_01_action_7\",\"description\":\"read device state. field_0 is device\",\"parameters\":{\"type\":\"object\",\"properties\":{\"field_0\":{\"type\":\"string\",\"enum\":[\"kitchen_light\",\"bedroom_light\",\"speaker\",\"radio\",\"thermostat\",\"heater\"]}},\"required\":[\"field_0\"],\"additionalproperties\":false}}] answer: "
+  },
+  {
+    "catalog": "held_out_names",
+    "schema_family_id": "names_01",
+    "example_id": "eeabe227c4d70a09448d",
+    "audio_path": "artifacts/semi_pilot/semi-v1/data/synthetic/0790cee31f2cb143698075c313a8da78118cdb4d7d873bbc48220d2d460a76cc.wav",
+    "transcript_for_review": "my request is to this time query the state of heater when ready",
+    "expected_answer_for_review": {
+      "calls": [
+        {
+          "name": "names_01_action_7",
+          "arguments": {
+            "field_0": "heater"
+          }
+        }
+      ]
+    },
+    "tools": [
+      {
+        "name": "names_01_action_0",
+        "description": "set device power on or off. field_0 is device; field_1 is state",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "field_0": {
+              "type": "string",
+              "enum": [
+                "kitchen_light",
+                "bedroom_light",
+                "speaker",
+                "radio",
+                "thermostat",
+                "heater"
+              ]
+            },
+            "field_1": {
+              "type": "string",
+              "enum": [
+                "on",
+                "off"
+              ]
+            }
+          },
+          "required": [
+            "field_0",
+            "field_1"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "names_01_action_1",
+        "description": "set light brightness. field_0 is device; field_1 is percent",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "field_0": {
+              "type": "string",
+              "enum": [
+                "kitchen_light",
+                "bedroom_light"
+              ]
+            },
+            "field_1": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          "required": [
+            "field_0",
+            "field_1"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "names_01_action_2",
+        "description": "set audio volume. field_0 is device; field_1 is percent",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "field_0": {
+              "type": "string",
+              "enum": [
+                "speaker",
+                "radio"
+              ]
+            },
+            "field_1": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          "required": [
+            "field_0",
+            "field_1"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "names_01_action_3",
+        "description": "set device temperature. field_0 is device; field_1 is celsius",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "field_0": {
+              "type": "string",
+              "enum": [
+                "thermostat",
+                "heater"
+              ]
+            },
+            "field_1": {
+              "type": "number",
+              "minimum": 5,
+              "maximum": 35
+            }
+          },
+          "required": [
+            "field_0",
+            "field_1"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "names_01_action_4",
+        "description": "start or replace a labelled countdown. field_0 is label; field_1 is seconds",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "field_0": {
+              "type": "string",
+              "enum": [
+                "tea",
+                "pasta",
+                "laundry"
+              ]
+            },
+            "field_1": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 86400
+            }
+          },
+          "required": [
+            "field_0",
+            "field_1"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "names_01_action_5",
+        "description": "cancel a labelled countdown. field_0 is label",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "field_0": {
+              "type": "string",
+              "enum": [
+                "tea",
+                "pasta",
+                "laundry"
+              ]
+            }
+          },
+          "required": [
+            "field_0"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "names_01_action_6",
+        "description": "set media playback state. field_0 is device; field_1 is state",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "field_0": {
+              "type": "string",
+              "enum": [
+                "speaker",
+                "radio"
+              ]
+            },
+            "field_1": {
+              "type": "string",
+              "enum": [
+                "playing",
+                "paused",
+                "stopped"
+              ]
+            }
+          },
+          "required": [
+            "field_0",
+            "field_1"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "names_01_action_7",
+        "description": "read device state. field_0 is device",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "field_0": {
+              "type": "string",
+              "enum": [
+                "kitchen_light",
+                "bedroom_light",
+                "speaker",
+                "radio",
+                "thermostat",
+                "heater"
+              ]
+            }
+          },
+          "required": [
+            "field_0"
+          ],
+          "additionalProperties": false
+        }
+      }
+    ],
+    "prompt": "return the requested calls as json using the supplied tools. tools:[{\"name\":\"names_01_action_0\",\"description\":\"set device power on or off. field_0 is device; field_1 is state\",\"parameters\":{\"type\":\"object\",\"properties\":{\"field_0\":{\"type\":\"string\",\"enum\":[\"kitchen_light\",\"bedroom_light\",\"speaker\",\"radio\",\"thermostat\",\"heater\"]},\"field_1\":{\"type\":\"string\",\"enum\":[\"on\",\"off\"]}},\"required\":[\"field_0\",\"field_1\"],\"additionalproperties\":false}},{\"name\":\"names_01_action_1\",\"description\":\"set light brightness. field_0 is device; field_1 is percent\",\"parameters\":{\"type\":\"object\",\"properties\":{\"field_0\":{\"type\":\"string\",\"enum\":[\"kitchen_light\",\"bedroom_light\"]},\"field_1\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":100}},\"required\":[\"field_0\",\"field_1\"],\"additionalproperties\":false}},{\"name\":\"names_01_action_2\",\"description\":\"set audio volume. field_0 is device; field_1 is percent\",\"parameters\":{\"type\":\"object\",\"properties\":{\"field_0\":{\"type\":\"string\",\"enum\":[\"speaker\",\"radio\"]},\"field_1\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":100}},\"required\":[\"field_0\",\"field_1\"],\"additionalproperties\":false}},{\"name\":\"names_01_action_3\",\"description\":\"set device temperature. field_0 is device; field_1 is celsius\",\"parameters\":{\"type\":\"object\",\"properties\":{\"field_0\":{\"type\":\"string\",\"enum\":[\"thermostat\",\"heater\"]},\"field_1\":{\"type\":\"number\",\"minimum\":5,\"maximum\":35}},\"required\":[\"field_0\",\"field_1\"],\"additionalproperties\":false}},{\"name\":\"names_01_action_4\",\"description\":\"start or replace a labelled countdown. field_0 is label; field_1 is seconds\",\"parameters\":{\"type\":\"object\",\"properties\":{\"field_0\":{\"type\":\"string\",\"enum\":[\"tea\",\"pasta\",\"laundry\"]},\"field_1\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":86400}},\"required\":[\"field_0\",\"field_1\"],\"additionalproperties\":false}},{\"name\":\"names_01_action_5\",\"description\":\"cancel a labelled countdown. field_0 is label\",\"parameters\":{\"type\":\"object\",\"properties\":{\"field_0\":{\"type\":\"string\",\"enum\":[\"tea\",\"pasta\",\"laundry\"]}},\"required\":[\"field_0\"],\"additionalproperties\":false}},{\"name\":\"names_01_action_6\",\"description\":\"set media playback state. field_0 is device; field_1 is state\",\"parameters\":{\"type\":\"object\",\"properties\":{\"field_0\":{\"type\":\"string\",\"enum\":[\"speaker\",\"radio\"]},\"field_1\":{\"type\":\"string\",\"enum\":[\"playing\",\"paused\",\"stopped\"]}},\"required\":[\"field_0\",\"field_1\"],\"additionalproperties\":false}},{\"name\":\"names_01_action_7\",\"description\":\"read device state. field_0 is device\",\"parameters\":{\"type\":\"object\",\"properties\":{\"field_0\":{\"type\":\"string\",\"enum\":[\"kitchen_light\",\"bedroom_light\",\"speaker\",\"radio\",\"thermostat\",\"heater\"]}},\"required\":[\"field_0\"],\"additionalproperties\":false}}] answer: "
+  },
+  {
+    "catalog": "held_out_structure",
+    "schema_family_id": "structure_01",
+    "example_id": "90fd310356d7a69685e0",
+    "audio_path": "artifacts/semi_pilot/semi-v1/data/synthetic/0790cee31f2cb143698075c313a8da78118cdb4d7d873bbc48220d2d460a76cc.wav",
+    "transcript_for_review": "my request is to this time query the state of heater when ready",
+    "expected_answer_for_review": {
+      "calls": [
+        {
+          "name": "structure_01_action_7",
+          "arguments": {
+            "payload": {
+              "field_0": "heater"
+            }
+          }
+        }
+      ]
+    },
+    "tools": [
+      {
+        "name": "structure_01_action_0",
+        "description": "set device power on or off. field_0 is device; field_1 is state; enabled means on; disabled means off; active means playing; held means paused; ended means stopped",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "payload": {
+              "type": "object",
+              "properties": {
+                "field_0": {
+                  "type": "string",
+                  "enum": [
+                    "kitchen_light",
+                    "bedroom_light",
+                    "speaker",
+                    "radio",
+                    "thermostat",
+                    "heater"
+                  ]
+                },
+                "field_1": {
+                  "type": "string",
+                  "enum": [
+                    "enabled",
+                    "disabled"
+                  ]
+                }
+              },
+              "required": [
+                "field_0",
+                "field_1"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "payload"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "structure_01_action_1",
+        "description": "set light brightness. field_0 is device; field_1 is fraction from zero to one",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "payload": {
+              "type": "object",
+              "properties": {
+                "field_0": {
+                  "type": "string",
+                  "enum": [
+                    "kitchen_light",
+                    "bedroom_light"
+                  ]
+                },
+                "field_1": {
+                  "type": "number",
+                  "minimum": 0.0,
+                  "maximum": 1.0
+                }
+              },
+              "required": [
+                "field_0",
+                "field_1"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "payload"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "structure_01_action_2",
+        "description": "set audio volume. field_0 is device; field_1 is fraction from zero to one",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "payload": {
+              "type": "object",
+              "properties": {
+                "field_0": {
+                  "type": "string",
+                  "enum": [
+                    "speaker",
+                    "radio"
+                  ]
+                },
+                "field_1": {
+                  "type": "number",
+                  "minimum": 0.0,
+                  "maximum": 1.0
+                }
+              },
+              "required": [
+                "field_0",
+                "field_1"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "payload"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "structure_01_action_3",
+        "description": "set device temperature. field_0 is device; field_1 is fahrenheit",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "payload": {
+              "type": "object",
+              "properties": {
+                "field_0": {
+                  "type": "string",
+                  "enum": [
+                    "thermostat",
+                    "heater"
+                  ]
+                },
+                "field_1": {
+                  "type": "number",
+                  "minimum": 41.0,
+                  "maximum": 95.0
+                }
+              },
+              "required": [
+                "field_0",
+                "field_1"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "payload"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "structure_01_action_4",
+        "description": "start or replace a labelled countdown. field_0 is label; field_1 is minutes",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "payload": {
+              "type": "object",
+              "properties": {
+                "field_0": {
+                  "type": "string",
+                  "enum": [
+                    "tea",
+                    "pasta",
+                    "laundry"
+                  ]
+                },
+                "field_1": {
+                  "type": "number",
+                  "minimum": 0.016666666666666666,
+                  "maximum": 1440.0
+                }
+              },
+              "required": [
+                "field_0",
+                "field_1"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "payload"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "structure_01_action_5",
+        "description": "cancel a labelled countdown. field_0 is label",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "payload": {
+              "type": "object",
+              "properties": {
+                "field_0": {
+                  "type": "string",
+                  "enum": [
+                    "tea",
+                    "pasta",
+                    "laundry"
+                  ]
+                }
+              },
+              "required": [
+                "field_0"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "payload"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "structure_01_action_6",
+        "description": "set media playback state. field_0 is device; field_1 is state; enabled means on; disabled means off; active means playing; held means paused; ended means stopped",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "payload": {
+              "type": "object",
+              "properties": {
+                "field_0": {
+                  "type": "string",
+                  "enum": [
+                    "speaker",
+                    "radio"
+                  ]
+                },
+                "field_1": {
+                  "type": "string",
+                  "enum": [
+                    "active",
+                    "held",
+                    "ended"
+                  ]
+                }
+              },
+              "required": [
+                "field_0",
+                "field_1"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "payload"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "structure_01_action_7",
+        "description": "read device state. field_0 is device",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "payload": {
+              "type": "object",
+              "properties": {
+                "field_0": {
+                  "type": "string",
+                  "enum": [
+                    "kitchen_light",
+                    "bedroom_light",
+                    "speaker",
+                    "radio",
+                    "thermostat",
+                    "heater"
+                  ]
+                }
+              },
+              "required": [
+                "field_0"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "payload"
+          ],
+          "additionalProperties": false
+        }
+      }
+    ],
+    "prompt": "return the requested calls as json using the supplied tools. tools:[{\"name\":\"structure_01_action_0\",\"description\":\"set device power on or off. field_0 is device; field_1 is state; enabled means on; disabled means off; active means playing; held means paused; ended means stopped\",\"parameters\":{\"type\":\"object\",\"properties\":{\"payload\":{\"type\":\"object\",\"properties\":{\"field_0\":{\"type\":\"string\",\"enum\":[\"kitchen_light\",\"bedroom_light\",\"speaker\",\"radio\",\"thermostat\",\"heater\"]},\"field_1\":{\"type\":\"string\",\"enum\":[\"enabled\",\"disabled\"]}},\"required\":[\"field_0\",\"field_1\"],\"additionalproperties\":false}},\"required\":[\"payload\"],\"additionalproperties\":false}},{\"name\":\"structure_01_action_1\",\"description\":\"set light brightness. field_0 is device; field_1 is fraction from zero to one\",\"parameters\":{\"type\":\"object\",\"properties\":{\"payload\":{\"type\":\"object\",\"properties\":{\"field_0\":{\"type\":\"string\",\"enum\":[\"kitchen_light\",\"bedroom_light\"]},\"field_1\":{\"type\":\"number\",\"minimum\":0.0,\"maximum\":1.0}},\"required\":[\"field_0\",\"field_1\"],\"additionalproperties\":false}},\"required\":[\"payload\"],\"additionalproperties\":false}},{\"name\":\"structure_01_action_2\",\"description\":\"set audio volume. field_0 is device; field_1 is fraction from zero to one\",\"parameters\":{\"type\":\"object\",\"properties\":{\"payload\":{\"type\":\"object\",\"properties\":{\"field_0\":{\"type\":\"string\",\"enum\":[\"speaker\",\"radio\"]},\"field_1\":{\"type\":\"number\",\"minimum\":0.0,\"maximum\":1.0}},\"required\":[\"field_0\",\"field_1\"],\"additionalproperties\":false}},\"required\":[\"payload\"],\"additionalproperties\":false}},{\"name\":\"structure_01_action_3\",\"description\":\"set device temperature. field_0 is device; field_1 is fahrenheit\",\"parameters\":{\"type\":\"object\",\"properties\":{\"payload\":{\"type\":\"object\",\"properties\":{\"field_0\":{\"type\":\"string\",\"enum\":[\"thermostat\",\"heater\"]},\"field_1\":{\"type\":\"number\",\"minimum\":41.0,\"maximum\":95.0}},\"required\":[\"field_0\",\"field_1\"],\"additionalproperties\":false}},\"required\":[\"payload\"],\"additionalproperties\":false}},{\"name\":\"structure_01_action_4\",\"description\":\"start or replace a labelled countdown. field_0 is label; field_1 is minutes\",\"parameters\":{\"type\":\"object\",\"properties\":{\"payload\":{\"type\":\"object\",\"properties\":{\"field_0\":{\"type\":\"string\",\"enum\":[\"tea\",\"pasta\",\"laundry\"]},\"field_1\":{\"type\":\"number\",\"minimum\":0.016666666666666666,\"maximum\":1440.0}},\"required\":[\"field_0\",\"field_1\"],\"additionalproperties\":false}},\"required\":[\"payload\"],\"additionalproperties\":false}},{\"name\":\"structure_01_action_5\",\"description\":\"cancel a labelled countdown. field_0 is label\",\"parameters\":{\"type\":\"object\",\"properties\":{\"payload\":{\"type\":\"object\",\"properties\":{\"field_0\":{\"type\":\"string\",\"enum\":[\"tea\",\"pasta\",\"laundry\"]}},\"required\":[\"field_0\"],\"additionalproperties\":false}},\"required\":[\"payload\"],\"additionalproperties\":false}},{\"name\":\"structure_01_action_6\",\"description\":\"set media playback state. field_0 is device; field_1 is state; enabled means on; disabled means off; active means playing; held means paused; ended means stopped\",\"parameters\":{\"type\":\"object\",\"properties\":{\"payload\":{\"type\":\"object\",\"properties\":{\"field_0\":{\"type\":\"string\",\"enum\":[\"speaker\",\"radio\"]},\"field_1\":{\"type\":\"string\",\"enum\":[\"active\",\"held\",\"ended\"]}},\"required\":[\"field_0\",\"field_1\"],\"additionalproperties\":false}},\"required\":[\"payload\"],\"additionalproperties\":false}},{\"name\":\"structure_01_action_7\",\"description\":\"read device state. field_0 is device\",\"parameters\":{\"type\":\"object\",\"properties\":{\"payload\":{\"type\":\"object\",\"properties\":{\"field_0\":{\"type\":\"string\",\"enum\":[\"kitchen_light\",\"bedroom_light\",\"speaker\",\"radio\",\"thermostat\",\"heater\"]}},\"required\":[\"field_0\"],\"additionalproperties\":false}},\"required\":[\"payload\"],\"additionalproperties\":false}}] answer: "
+  }
+]
