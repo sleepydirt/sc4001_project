@@ -1,0 +1,46 @@
+GPU: Tesla V100-PCIE-32GB | Torch: 2.9.1+cu128
+wandb: [wandb.login()] Loaded credentials for https://api.forge.coreweave.com from /tc1home/UG/asoh014/.netrc.
+wandb: Currently logged in as: sleepydirt (team88_sc4001) to https://api.forge.coreweave.com. Use `wandb login --relogin` to force relogin
+wandb: setting up run 7q8vyuu2
+wandb: Tracking run with wandb version 0.31.0
+wandb: Run data is saved locally in /tc1home/UG/asoh014/sc4001_project/artifacts/wandb/73324/wandb/run-20261110_202706-7q8vyuu2
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run semi-v1-warmup-73324
+wandb: ⭐️ View project at https://forge.coreweave.com/wandb/team88_sc4001/team88_sc4001
+wandb: 🚀 View run at https://forge.coreweave.com/wandb/team88_sc4001/team88_sc4001/runs/7q8vyuu2
+W&B tracking semi-v1-warmup-73324 in team88_sc4001 (online).
+warmup already completed at update 512.
+wandb: updating run metadata
+wandb: uploading config.yaml
+wandb: uploading history steps 0-512, summary
+wandb: 
+wandb: Run history:
+wandb:                            dev/macro_exact ▁▅▆▇▆▇███
+wandb:             dev/slurp/familiar/argument_f1 ▁████████
+wandb:      dev/slurp/familiar/argument_precision ▁████████
+wandb:         dev/slurp/familiar/argument_recall ▁████████
+wandb:                   dev/slurp/familiar/exact ▁████████
+wandb:                  dev/slurp/familiar/groups ▁▁▁▁▁▁▁▁▁
+wandb: dev/slurp/familiar/joint_argument_accuracy ▁████████
+wandb: dev/slurp/familiar/ordered_program_success ▁████████
+wandb:              dev/slurp/familiar/recordings ▁▁▁▁▁▁▁▁▁
+wandb:           dev/slurp/familiar/tool_accuracy ▁████████
+wandb:                                        +43 ...
+wandb: 
+wandb: Run summary:
+wandb:                            dev/macro_exact 0.375
+wandb:             dev/slurp/familiar/argument_f1 1
+wandb:      dev/slurp/familiar/argument_precision 1
+wandb:         dev/slurp/familiar/argument_recall 1
+wandb:                   dev/slurp/familiar/exact 1
+wandb:                  dev/slurp/familiar/groups 3
+wandb: dev/slurp/familiar/joint_argument_accuracy 1
+wandb: dev/slurp/familiar/ordered_program_success 1
+wandb:              dev/slurp/familiar/recordings 3
+wandb:           dev/slurp/familiar/tool_accuracy 1
+wandb:                                        +43 ...
+wandb: 
+wandb: 🚀 View run semi-v1-warmup-73324 at: https://forge.coreweave.com/wandb/team88_sc4001/team88_sc4001/runs/7q8vyuu2
+wandb: ⭐️ View project at: https://forge.coreweave.com/wandb/team88_sc4001/team88_sc4001
+wandb: Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./artifacts/wandb/73324/wandb/run-20261110_202706-7q8vyuu2/logs

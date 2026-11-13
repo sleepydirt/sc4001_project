@@ -1,0 +1,11 @@
+GPU: Tesla V100-PCIE-32GB | Torch: 2.9.1+cu128
+Traceback (most recent call last):
+  File "/tc1home/UG/asoh014/sc4001_project/semi_pilot/wandb_log.py", line 203, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/tc1home/UG/asoh014/sc4001_project/semi_pilot/wandb_log.py", line 192, in main
+    root = experiment_dir(args.experiment)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tc1home/UG/asoh014/sc4001_project/semi_pilot/data.py", line 54, in experiment_dir
+    raise ValueError("Experiment name must use letters, numbers, hyphens or underscores.")
+ValueError: Experiment name must use letters, numbers, hyphens or underscores.

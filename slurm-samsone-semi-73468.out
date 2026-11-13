@@ -1,0 +1,2 @@
+GPU: Tesla V100-PCIE-32GB | Torch: 2.9.1+cu128
+Frozen test report: /tc1home/UG/asoh014/sc4001_project/artifacts/semi_pilot/semi-v1/test-report/report.html

@@ -1,0 +1,46 @@
+GPU: Tesla V100-PCIE-32GB | Torch: 2.9.1+cu128
+wandb: [wandb.login()] Loaded credentials for https://api.forge.coreweave.com from /tc1home/UG/asoh014/.netrc.
+wandb: Currently logged in as: sleepydirt (team88_sc4001) to https://api.forge.coreweave.com. Use `wandb login --relogin` to force relogin
+wandb: setting up run wa2ez88h
+wandb: Tracking run with wandb version 0.31.0
+wandb: Run data is saved locally in /tc1home/UG/asoh014/sc4001_project/artifacts/wandb/73475/wandb/run-20261111_181647-wa2ez88h
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run semi-long-gate-73475
+wandb: ⭐️ View project at https://forge.coreweave.com/wandb/team88_sc4001/team88_sc4001
+wandb: 🚀 View run at https://forge.coreweave.com/wandb/team88_sc4001/team88_sc4001/runs/wa2ez88h
+W&B tracking semi-long-gate-73475 in team88_sc4001 (online).
+Gate passed: dev familiar exact 75.0%, mixed reward groups 5/24 (20.8%), by source {'slurp': 0, 'synthetic': 5}
+wandb: updating run metadata
+wandb: uploading config.yaml
+wandb: uploading history steps 0-0, summary
+wandb: 
+wandb: Run history:
+wandb:                            dev/macro_exact ▁
+wandb:             dev/slurp/familiar/argument_f1 ▁
+wandb:      dev/slurp/familiar/argument_precision ▁
+wandb:         dev/slurp/familiar/argument_recall ▁
+wandb:                   dev/slurp/familiar/exact ▁
+wandb:                  dev/slurp/familiar/groups ▁
+wandb: dev/slurp/familiar/joint_argument_accuracy ▁
+wandb: dev/slurp/familiar/ordered_program_success ▁
+wandb:              dev/slurp/familiar/recordings ▁
+wandb:           dev/slurp/familiar/tool_accuracy ▁
+wandb:                                        +39 ...
+wandb: 
+wandb: Run summary:
+wandb:                            dev/macro_exact 0.375
+wandb:             dev/slurp/familiar/argument_f1 1
+wandb:      dev/slurp/familiar/argument_precision 1
+wandb:         dev/slurp/familiar/argument_recall 1
+wandb:                   dev/slurp/familiar/exact 1
+wandb:                  dev/slurp/familiar/groups 3
+wandb: dev/slurp/familiar/joint_argument_accuracy 1
+wandb: dev/slurp/familiar/ordered_program_success 1
+wandb:              dev/slurp/familiar/recordings 3
+wandb:           dev/slurp/familiar/tool_accuracy 1
+wandb:                                        +39 ...
+wandb: 
+wandb: 🚀 View run semi-long-gate-73475 at: https://forge.coreweave.com/wandb/team88_sc4001/team88_sc4001/runs/wa2ez88h
+wandb: ⭐️ View project at: https://forge.coreweave.com/wandb/team88_sc4001/team88_sc4001
+wandb: Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./artifacts/wandb/73475/wandb/run-20261111_181647-wa2ez88h/logs

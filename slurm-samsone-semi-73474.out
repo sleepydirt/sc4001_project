@@ -1,0 +1,44 @@
+GPU: Tesla V100-PCIE-32GB | Torch: 2.9.1+cu128
+wandb: [wandb.login()] Loaded credentials for https://api.forge.coreweave.com from /tc1home/UG/asoh014/.netrc.
+wandb: Currently logged in as: sleepydirt (team88_sc4001) to https://api.forge.coreweave.com. Use `wandb login --relogin` to force relogin
+wandb: setting up run w6mg5jh0
+wandb: Tracking run with wandb version 0.31.0
+wandb: Run data is saved locally in /tc1home/UG/asoh014/sc4001_project/artifacts/wandb/73474/wandb/run-20261111_181420-w6mg5jh0
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run semi-long-grpo-73474
+wandb: ⭐️ View project at https://forge.coreweave.com/wandb/team88_sc4001/team88_sc4001
+wandb: 🚀 View run at https://forge.coreweave.com/wandb/team88_sc4001/team88_sc4001/runs/w6mg5jh0
+W&B tracking semi-long-grpo-73474 in team88_sc4001 (online).
+wandb: updating run metadata
+wandb: uploading wandb-summary.json; uploading config.yaml
+wandb: uploading config.yaml
+wandb: 🚀 View run semi-long-grpo-73474 at: https://forge.coreweave.com/wandb/team88_sc4001/team88_sc4001/runs/w6mg5jh0
+wandb: ⭐️ View project at: https://forge.coreweave.com/wandb/team88_sc4001/team88_sc4001
+wandb: Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./artifacts/wandb/73474/wandb/run-20261111_181420-w6mg5jh0/logs
+Traceback (most recent call last):
+  File "/tc1home/UG/asoh014/sc4001_project/semi_pilot/wandb_log.py", line 203, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/tc1home/UG/asoh014/sc4001_project/semi_pilot/wandb_log.py", line 199, in main
+    return run_job(root, args.stage, args.flags)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tc1home/UG/asoh014/sc4001_project/semi_pilot/wandb_log.py", line 164, in run_job
+    exit_code = run_stage(args)
+                ^^^^^^^^^^^^^^^
+  File "/tc1home/UG/asoh014/sc4001_project/semi_pilot/run.py", line 628, in main
+    return train(args, root, rows, manifest_hash)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tc1home/UG/asoh014/sc4001_project/semi_pilot/run.py", line 250, in train
+    gate = read_json(root / "warmup/gate.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tc1home/UG/asoh014/sc4001_project/src/nano_audio/utils.py", line 14, in read_json
+    def read_json(path): return json.loads(Path(path).read_text())
+                                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/tc1home/UG/asoh014/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tc1home/UG/asoh014/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tc1home/UG/asoh014/sc4001_project/artifacts/semi_pilot/semi-long/warmup/gate.json'

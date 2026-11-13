@@ -1,0 +1,213 @@
+GPU: Tesla V100-PCIE-32GB | Torch: 2.9.1+cu128
+{
+  "mapping_version": "explicit-room-and-absolute-value-v1",
+  "annotation_sha256": {
+    "train": "4a05a3de6c7f028aff298c4a90196e6a3fecd1938d96fb1c125d6fd10d5e301e",
+    "dev": "00d346b183ecc2d160853cd3dc20e8ccd207d9e1809cf6e2c05182076bd0ecc9",
+    "test": "fe3449af69b42fda7163345482556066c35a80f7e552a6d67e212a0e2f0783cc"
+  },
+  "eligible_groups": {
+    "train": 35,
+    "dev": 3,
+    "test": 5
+  },
+  "counts": {
+    "train": {
+      "annotation_rows": 11514,
+      "set_power": 35
+    },
+    "dev": {
+      "annotation_rows": 2033,
+      "set_power": 3
+    },
+    "test": {
+      "annotation_rows": 2974,
+      "set_power": 5
+    }
+  },
+  "excluded_annotations": {
+    "train": {
+      "unsupported_intent": 11018,
+      "missing_or_unsupported_audio_device": 173,
+      "missing_ambiguous_or_unsupported_light": 254,
+      "unsupported_qualifier_or_compound_request": 22,
+      "missing_explicit_absolute_percent": 7,
+      "unsupported_or_repeated_entity": 4,
+      "cross_partition_duplicate": 1
+    },
+    "dev": {
+      "unsupported_intent": 1964,
+      "missing_or_unsupported_audio_device": 19,
+      "missing_ambiguous_or_unsupported_light": 39,
+      "unsupported_qualifier_or_compound_request": 6,
+      "missing_explicit_absolute_percent": 2
+    },
+    "test": {
+      "unsupported_intent": 2853,
+      "missing_ambiguous_or_unsupported_light": 76,
+      "unsupported_or_repeated_entity": 1,
+      "missing_or_unsupported_audio_device": 29,
+      "unsupported_qualifier_or_compound_request": 7,
+      "missing_explicit_absolute_percent": 2,
+      "cross_partition_duplicate": 1
+    }
+  }
+}
+/tc1home/UG/asoh014/sc4001_project/.venv/lib/python3.12/site-packages/torch/nn/modules/rnn.py:123: UserWarning: dropout option adds dropout after all but last recurrent layer, so non-zero dropout expects num_layers greater than 1, but got dropout=0.2 and num_layers=1
+  warnings.warn(
+/tc1home/UG/asoh014/sc4001_project/.venv/lib/python3.12/site-packages/torch/nn/utils/weight_norm.py:144: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+synthesized 1: af_alloy 3.15s
+synthesized 2: af_aoede 2.58s
+synthesized 3: af_alloy 4.45s
+synthesized 4: af_aoede 3.83s
+synthesized 5: af_alloy 4.85s
+synthesized 6: af_aoede 4.5s
+synthesized 7: af_alloy 4.28s
+synthesized 8: af_aoede 3.77s
+synthesized 9: af_alloy 4.3s
+synthesized 10: af_aoede 3.95s
+synthesized 11: af_alloy 3.52s
+synthesized 12: af_aoede 3.02s
+synthesized 13: af_alloy 3.75s
+synthesized 14: af_aoede 3.15s
+synthesized 15: af_alloy 4.33s
+synthesized 16: af_aoede 3.8s
+synthesized 17: af_alloy 5.2s
+synthesized 18: af_aoede 5.08s
+synthesized 19: af_alloy 4.67s
+synthesized 20: af_aoede 4.17s
+synthesized 21: af_alloy 4.22s
+synthesized 22: af_aoede 3.7s
+synthesized 23: af_alloy 4.58s
+synthesized 24: af_aoede 4.22s
+synthesized 25: af_alloy 7.17s
+synthesized 26: af_aoede 7.33s
+synthesized 27: af_alloy 5.0s
+synthesized 28: af_aoede 4.88s
+synthesized 29: af_alloy 4.05s
+synthesized 30: af_aoede 3.52s
+synthesized 31: af_alloy 3.75s
+synthesized 32: af_aoede 3.35s
+synthesized 33: af_alloy 5.97s
+synthesized 34: af_aoede 6.12s
+synthesized 35: af_alloy 4.8s
+synthesized 36: af_aoede 4.28s
+synthesized 37: af_alloy 7.08s
+synthesized 38: af_aoede 7.12s
+synthesized 39: af_alloy 5.12s
+synthesized 40: af_aoede 4.62s
+synthesized 41: af_alloy 6.85s
+synthesized 42: af_aoede 6.92s
+synthesized 43: af_alloy 3.3s
+synthesized 44: af_aoede 2.9s
+synthesized 45: af_alloy 3.7s
+synthesized 46: af_aoede 3.35s
+synthesized 47: af_alloy 3.75s
+synthesized 48: af_aoede 3.12s
+synthesized 49: af_alloy 3.95s
+synthesized 50: af_aoede 3.3s
+synthesized 51: af_alloy 4.67s
+synthesized 52: af_aoede 4.2s
+synthesized 53: af_alloy 4.55s
+synthesized 54: af_aoede 4.05s
+synthesized 55: af_alloy 5.72s
+synthesized 56: af_aoede 5.65s
+synthesized 57: af_alloy 4.72s
+synthesized 58: af_aoede 4.22s
+synthesized 59: af_alloy 3.4s
+synthesized 60: af_aoede 2.73s
+synthesized 61: af_alloy 3.8s
+synthesized 62: af_aoede 3.3s
+synthesized 63: af_alloy 3.25s
+synthesized 64: af_aoede 2.55s
+synthesized 65: af_alloy 3.67s
+synthesized 66: af_aoede 3.02s
+synthesized 67: af_alloy 5.12s
+synthesized 68: af_aoede 4.65s
+synthesized 69: af_alloy 4.55s
+synthesized 70: af_aoede 4.15s
+synthesized 71: af_alloy 3.75s
+synthesized 72: af_aoede 3.35s
+synthesized 73: af_alloy 4.3s
+synthesized 74: af_aoede 3.88s
+synthesized 75: af_alloy 4.83s
+synthesized 76: af_aoede 4.78s
+synthesized 77: af_alloy 4.42s
+synthesized 78: af_aoede 3.9s
+synthesized 79: af_alloy 3.3s
+synthesized 80: af_aoede 2.67s
+synthesized 81: af_alloy 3.5s
+synthesized 82: af_aoede 3.1s
+synthesized 83: af_alloy 7.83s
+synthesized 84: af_aoede 7.38s
+synthesized 85: af_alloy 4.2s
+synthesized 86: af_aoede 3.73s
+synthesized 87: af_alloy 4.5s
+synthesized 88: af_aoede 4.08s
+synthesized 89: af_alloy 7.22s
+synthesized 90: af_aoede 7.35s
+synthesized 91: af_alloy 4.9s
+synthesized 92: af_aoede 4.7s
+synthesized 93: af_alloy 4.05s
+synthesized 94: af_aoede 3.5s
+synthesized 95: af_alloy 4.88s
+synthesized 96: af_aoede 4.72s
+synthesized 97: af_alloy 3.1s
+synthesized 98: af_aoede 2.67s
+synthesized 99: af_alloy 5.83s
+synthesized 100: af_aoede 5.83s
+synthesized 101: af_alloy 4.45s
+synthesized 102: af_aoede 4.0s
+synthesized 103: af_alloy 4.3s
+synthesized 104: af_aoede 3.95s
+synthesized 105: af_alloy 7.58s
+synthesized 106: af_aoede 7.6s
+synthesized 107: af_alloy 3.48s
+synthesized 108: af_aoede 2.98s
+synthesized 109: af_alloy 6.2s
+synthesized 110: af_aoede 6.17s
+synthesized 111: af_alloy 3.17s
+synthesized 112: af_aoede 2.62s
+synthesized 113: af_alloy 3.48s
+synthesized 114: af_aoede 2.83s
+synthesized 115: af_alloy 5.05s
+synthesized 116: af_aoede 4.75s
+synthesized 117: af_alloy 4.53s
+synthesized 118: af_aoede 4.05s
+synthesized 119: af_alloy 4.9s
+synthesized 120: af_aoede 4.42s
+synthesized 121: af_alloy 4.38s
+synthesized 122: af_aoede 4.0s
+synthesized 123: af_alloy 3.42s
+synthesized 124: af_aoede 3.02s
+synthesized 125: af_alloy 4.53s
+synthesized 126: af_aoede 4.25s
+synthesized 127: af_alloy 6.83s
+synthesized 128: af_aoede 6.9s
+synthesized 129: am_adam 4.92s
+synthesized 130: am_adam 5.42s
+synthesized 131: am_adam 5.62s
+synthesized 132: am_adam 4.35s
+synthesized 133: am_adam 6.97s
+synthesized 134: am_adam 2.48s
+synthesized 135: am_adam 7.1s
+synthesized 136: am_adam 3.77s
+synthesized 137: am_adam 2.58s
+synthesized 138: am_adam 4.8s
+synthesized 139: am_adam 4.5s
+synthesized 140: am_adam 4.22s
+synthesized 141: am_echo 4.0s
+synthesized 142: am_echo 5.55s
+synthesized 143: am_echo 5.78s
+synthesized 144: am_echo 7.62s
+synthesized 145: am_echo 6.0s
+synthesized 146: am_echo 5.78s
+synthesized 147: am_echo 4.58s
+synthesized 148: am_echo 4.53s
+synthesized 149: am_echo 4.85s
+synthesized 150: am_echo 5.12s
+synthesized 151: am_echo 5.12s
+synthesized 152: am_echo 5.47s
+Frozen data: /tc1home/UG/asoh014/sc4001_project/artifacts/semi_pilot/semi-v1/data
+Manifest SHA-256: b89c573a6e7cf831eec108d13f313ec11bb335c11c9525270eb747dca57a5a26
