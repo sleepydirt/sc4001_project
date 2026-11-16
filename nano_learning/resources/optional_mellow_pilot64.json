@@ -1,0 +1,17 @@
+{
+  "enabled": false,
+  "queued": false,
+  "status": "unrun; no measurements exist for these corrected branches",
+  "model": "mellow",
+  "stage": "pilot64",
+  "arms": ["sft", "binary", "typed"],
+  "parent": "artifacts/audio2tool_pilot/20261114_seed17/runs/mellow-warmup-010/endpoint_policy.pt",
+  "parent_sha256": "cfb2816d79ed92e968e3b36506a9933dc3ee5ae425f0dadfe23eceee853fd607",
+  "parent_updates": 640,
+  "additional_updates": 64,
+  "sampler_offset": 640,
+  "seed": 17,
+  "optimizer": "reset separately in each branch",
+  "full_validation": [64],
+  "activation": "Explicitly invoke nano_learning.training pilot64 with --enable-optional-mellow and a new --output for each arm."
+}

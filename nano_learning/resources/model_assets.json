@@ -1,0 +1,71 @@
+{
+  "models": {
+    "smollm2_135m_base": {
+      "repo_id": "HuggingFaceTB/SmolLM2-135M",
+      "revision": "93efa2f097d58c2a74874c7e644dbc9b0cee75a2",
+      "source_url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M",
+      "license": "apache-2.0",
+      "sha256": {
+        "tokenizer.json": "9ca9acddb6525a194ec8ac7a87f24fbba7232a9a15ffa1af0c1224fcd888e47c",
+        "generation_config.json": "2056c988e990b0d13670f63f2f3b87b3b6d07edaf7a3416998ba27dab2d8a059",
+        "special_tokens_map.json": "e786b595b9a23148bf1630df78d9037a048ea671e48bfd3549a1e3c233742bb3",
+        "tokenizer_config.json": "4bb9af56a342753d39374f4016a16574cab299fe088e896f425ce3c433f61424",
+        "model.safetensors": "80521b40281d6ce74e35c9282c22539e75aa0ac8578892b2a59955ef78d55da1",
+        "config.json": "1d556eab73b69c7f11f64c557a2f9c6f440bd4c6b89bb2584a6b498c92603843",
+        "merges.txt": "0b54e8aa4e53d5383e2e4bc635a56b43f9647f7b13832d5d9ecd8f82dac4f510",
+        "vocab.json": "82b84012e3add4d01d12ba14442026e49b8cbbaead1f79ecf3d919784f82dc79"
+      },
+      "filename": "93efa2f097d58c2a74874c7e644dbc9b0cee75a2"
+    },
+    "whisper_tiny": {
+      "repo_id": "openai/whisper-tiny",
+      "revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+      "source_url": "https://huggingface.co/openai/whisper-tiny",
+      "license": "apache-2.0",
+      "sha256": {
+        "added_tokens.json": "9715fd2243b6f06a5858b5e32950d2853f73dd5bc201aafcf76f5082a2d8acd1",
+        "README.md": "57a3bbbbf1e79369e4d1ced790812a1723b43a256c1b43fc70cc2f3339ae9881",
+        "tokenizer.json": "27fc476bfe7f17299480be2273fc0608e4d5a99aba2ab5dec5374b4482d1a566",
+        "flax_model.msgpack": "a695f537d9f018eb43a9eb05bc22f4524351061bbf2890b2c01ac9b51b43ff4e",
+        "generation_config.json": "a5d5325911f16e74001a72fa13d6e208eee51548f994646de1f4b4cc8b35b512",
+        "special_tokens_map.json": "e67ae3a0aaa99abcd9f187138e12db1f65c16a14761c50ef10eef2c174a7a691",
+        "tokenizer_config.json": "2a4c4281cf9f51ac6ccc406fdc711a087afe6530f671fa7b80953edc498275ce",
+        "tf_model.h5": "4144af98f9f31730fd565591248e046f56a6adbe1461d7306339769e09ec8ed0",
+        "model.safetensors": "7ebd0e69e78190ffe1438491fa05cc1f5c1aa3a4c4db3bc1723adbb551ea2395",
+        "config.json": "ffdccec4f3211f4c63310f2b7098f309fe70f3952cedc5e4d11e43f5b2379b98",
+        ".gitattributes": "20cb01c2bd9b0ae0863422f9da41b20f10f93e009e657f411a41402f51ccf391",
+        "normalizer.json": "bf1c507dc8724ca9cf9903640dacfb69dae2f00edee4f21ceba106a7392f26dd",
+        "pytorch_model.bin": "9607f98a2b22d9e229ae43c52ecea79dcede9e0c5cfae67e8da6eda86d8aac1d",
+        "preprocessor_config.json": "9b5cd03a36fbb8a627c64d98a5b5b126ead95a77720723944487311f0110b666",
+        "merges.txt": "2df2990a395e35e8dfbc7511e08c12d56018d8d04691e0133e5d63b21e154dc6",
+        "vocab.json": "8f680bba319e01a653d2e8a5dbc17a9157179e0576e6ce74ce0c06356c6e24f9"
+      },
+      "filename": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af"
+    },
+    "mellow_v0_published": {
+      "repo_id": "soham97/mellow",
+      "revision": "83672db0dae28764e283210d5bb732621e903d8a",
+      "source_url": "https://huggingface.co/soham97/mellow",
+      "license": "mit",
+      "sha256": "796b1bf48fa6f33f5294a3aab7510265d88e56941bfb2146ceb09175cef45666",
+      "filename": "v0.ckpt"
+    },
+    "samsone_134m_published": {
+      "sha256": "ee3eda7afc16f57e923fea8021e5d131709ccd0247dd178c4dbfa9087cc7b90c",
+      "source_revision": "a71e77ae9528ef411ae26cdeb02d7b90cc18a50c",
+      "source_url": "https://github.com/SamsungLabs/samsone/releases/tag/v1.0.0",
+      "license": "not specified in inspected release/source metadata",
+      "filename": "samsone_134m_model_bf16.ckpt"
+    }
+  },
+  "sources": {
+    "samsone": {
+      "revision": "a71e77ae9528ef411ae26cdeb02d7b90cc18a50c",
+      "url": "https://github.com/SamsungLabs/samsone"
+    },
+    "mellow": {
+      "revision": "349f9b2be84bec713ac71e54fcbcac9bf4d116e5",
+      "url": "https://github.com/soham97/mellow"
+    }
+  }
+}

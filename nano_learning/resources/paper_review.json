@@ -1,0 +1,108 @@
+{
+  "reviewed_on": "2026-11-16",
+  "paper_sha256": "567044bea694bf237fadaf2d158d0802bcd65943be0aae646e4ef55fb9368f36",
+  "previous_paper_sha256": "31355c29b3cf0d430d4ab878fed5770f201d606a1e5f88a810670a204abf4ec4",
+  "claims": [
+    {
+      "id": "mellow-lineage",
+      "paper_anchor": "\\label{tab:a2t-pilot-test}",
+      "status": "important_discrepancy",
+      "evidence": [
+        "artifacts/audio2tool_pilot/20261114_seed17/parent_selection.json",
+        "paper/generated/evidence/corrected_selection.json",
+        "paper/generated/tables/warmups.csv"
+      ],
+      "assessment": "The latest table still labels the historical Mellow parent 640 and +64 endpoints 704; saved runs used parent 256 and endpoints 320.",
+      "previous_status": "discrepancy",
+      "change": "remaining",
+      "remedy": "Change the four Mellow lineage cells to 256/320/320/320 and identify its 100% warmup pool in the caption. No rerun is needed.",
+      "priority": "important"
+    },
+    {
+      "id": "discussion",
+      "paper_anchor": "When dealing with structured outputs",
+      "status": "important_discrepancy",
+      "evidence": [
+        "paper/generated/tables/endpoints.csv",
+        "paper/generated/tables/pilot_test.csv",
+        "artifacts/audio2tool_pilot/20261114_seed17/evaluation/samsone-released.json",
+        "artifacts/audio2tool_pilot/20261114_seed17/evaluation/mellow-released.json"
+      ],
+      "assessment": "Discussion still names an unadapted base SmolLM2 evaluation and assigns the long-run comparison to test. The measurements are released audio-model pilot test results and Samsone +1024 full-validation results. 22.09 minus 14.07 is 8.01 percentage points, not nine.",
+      "previous_status": "discrepancy",
+      "change": "remaining",
+      "remedy": "Name the released Samsone/Mellow checkpoints; report 22.09% versus 14.07% full-validation macro exact, a gap of 8.01 points.",
+      "priority": "important"
+    },
+    {
+      "id": "selection-narrative",
+      "paper_anchor": "At steps 256, 512, and 640",
+      "status": "important_discrepancy",
+      "evidence": [
+        "artifacts/audio2tool_pilot/20261114_seed17/parent_selection.json",
+        "paper/generated/evidence/corrected_selection.json",
+        "paper/generated/tables/warmups.csv"
+      ],
+      "assessment": "The selection paragraph still combines all-checkpoint ranking with smallest-pool ties. Historical Mellow selection used 100%/256, while corrected selection compares 640 endpoints only.",
+      "previous_status": "discrepancy",
+      "change": "remaining",
+      "remedy": "Distinguish the historical pilot parent from retrospective endpoint-only selection; do not call the corrected rule the original executed rule.",
+      "priority": "important"
+    },
+    {
+      "id": "hardware",
+      "paper_anchor": "Throughout this section",
+      "status": "important_discrepancy",
+      "evidence": [
+        "artifacts/audio2tool_pilot/20261114_seed17/environment_provenance.json",
+        "paper/generated/tables/training_curves.csv"
+      ],
+      "assessment": "Training hardware is now accurately described, but the new claim that evaluation used V100/FP16 has no supporting evaluation-device record in the saved study evidence.",
+      "previous_status": "discrepancy",
+      "change": "remaining",
+      "remedy": "Remove the V100 evaluation assertion unless a separate evaluation log establishes the device and precision; Mellow training uses BF16.",
+      "priority": "important"
+    },
+    {
+      "id": "grpo-normalization",
+      "previous_status": "not_registered",
+      "paper_anchor": "A_i = \\frac",
+      "evidence": [
+        "src/nano_audio/training/core.py"
+      ],
+      "status": "important_discrepancy",
+      "change": "remaining",
+      "assessment": "The advantage formula still omits the stabilizer and is undefined for equal-reward groups. Code uses population standard deviation plus 1e-6.",
+      "remedy": "Add +10^-6 to the denominator and specify population standard deviation.",
+      "priority": "important"
+    },
+    {
+      "id": "scope-limits",
+      "paper_anchor": "Further constraints stem",
+      "status": "important_discrepancy",
+      "evidence": [
+        "paper/generated/tables/endpoints.csv",
+        "paper/generated/tables/pilot_test.csv",
+        "artifacts/audio2tool_pilot/20261114_seed17/listening_audit.json"
+      ],
+      "assessment": "The unqualified statement that Mellow did not continue with RL obscures its completed historical +64 GRPO branches.",
+      "previous_status": "supported_with_scope",
+      "change": "remaining",
+      "remedy": "Specify that no Mellow +1024 GRPO continuation was run; the +64 arms remain reported separately.",
+      "priority": "important"
+    },
+    {
+      "id": "conclusion",
+      "paper_anchor": "In this work, we investigated",
+      "status": "important_discrepancy",
+      "evidence": [
+        "paper/generated/tables/endpoints.csv"
+      ],
+      "assessment": "Universal zero-shot incapacity and causal architecture/initialization conclusions exceed this two-model, single-seed comparison.",
+      "previous_status": "unsupported_generalization",
+      "change": "remaining",
+      "remedy": "Restrict zero-shot findings to the tested released audio checkpoints and describe architecture/initialization as possible explanations rather than isolated causes.",
+      "priority": "important"
+    }
+  ]
+}

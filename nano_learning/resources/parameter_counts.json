@@ -1,0 +1,42 @@
+{
+  "method": "Sum shapes for unique trainable names saved by model.named_parameters(); verify against checkpoint totals and AdamW moment tensor sizes. Frozen encoder count is total minus trainable; excludes nonparameter buffers.",
+  "grpo_reference": "An additional independent frozen reference is used by GRPO; excluded from policy trainable counts.",
+  "records": [
+    {
+      "model": "Samsone-134M",
+      "decoder_trainable": 125851392,
+      "projector_trainable": 554112,
+      "extra_separator_trainable": 576,
+      "trainable_total": 126406080,
+      "frozen_encoder": 8208384,
+      "model_total": 134614464,
+      "tied_embeddings_counted_once": true,
+      "optimizer_group_counts": [
+        125851392,
+        554688
+      ],
+      "policy_checkpoint": "artifacts/audio2tool_pilot/20261114_seed17/runs/samsone-warmup-010/endpoint_policy.pt",
+      "policy_sha256": "5601c21009911d68e21bdec7d918637206af98e243430dd362fdd510064855ac",
+      "optimizer_checkpoint": "artifacts/audio2tool_pilot/20261114_seed17/runs/samsone-warmup-010/checkpoint_000640/resume.pt",
+      "optimizer_sha256": "0550848a8f4582cbd5d434cd500daef30ff9175b98e944fdd27c23c5d54acb57"
+    },
+    {
+      "model": "Mellow-v0",
+      "decoder_trainable": 134515008,
+      "projector_trainable": 775296,
+      "extra_separator_trainable": 0,
+      "trainable_total": 135290304,
+      "frozen_encoder": 31730647,
+      "model_total": 167020951,
+      "tied_embeddings_counted_once": true,
+      "optimizer_group_counts": [
+        134515008,
+        775296
+      ],
+      "policy_checkpoint": "artifacts/audio2tool_pilot/20261114_seed17/runs/mellow-warmup-010/endpoint_policy.pt",
+      "policy_sha256": "cfb2816d79ed92e968e3b36506a9933dc3ee5ae425f0dadfe23eceee853fd607",
+      "optimizer_checkpoint": "artifacts/audio2tool_pilot/20261114_seed17/runs/mellow-warmup-010/checkpoint_000640/resume.pt",
+      "optimizer_sha256": "8b10a2c74a5d7b6e19316134cf28fa93c46b09f6ed73a3ee4e49daeb44031276"
+    }
+  ]
+}
