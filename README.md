@@ -6,6 +6,49 @@ Supervised and reinforcement post-training of Samsone-134M and Mellow on Audio2T
 
 Use Linux, Python 3.12, Git LFS and an NVIDIA GPU. Model downloads and dataset preparation require network access and substantial disk space.
 
+### Linux Setup
+If you **already have** Linux, you can skip to the next section on HuggingFace Token. However, if you **do not** have Linux, follow these steps below:
+```bash
+wsl --install -d Ubuntu
+```
+
+Update Ubuntu packages and install `git-lfs` and `curl`:
+```bash
+sudo apt-get update && sudo apt-get install -y curl git-lfs
+git lfs install
+```
+
+Install uv and Python 312:
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+source $HOME/.local/bin/env
+uv python install 3.12
+```
+### HuggingFace Token
+
+Clone the repository into your machine:
+```bash
+cd ~
+git clone <your-repository-url>
+cd <your-repository-folder>
+```
+
+Next, create a Read Token on HuggingFace:
+1. Log in to your account at huggingface.co.
+2. Click your profile avatar in the top-right corner and select Access Tokens (or navigate directly to huggingface.co/settings/tokens).
+3. Click + Create new token.
+4. Set Token type to Read (this provides read-only access to public and gated models/datasets you have been granted access to).
+5. Give the token a descriptive name (e.g., wsl-audio2tool) and click Create token.
+6. Click Copy to save the hf_... string immediately—Hugging Face will not display it again.
+
+After copying the string, export the token into your Ubuntu environment:
+```bash
+export HF_TOKEN="hf_your_copied_token_here"
+```
+
+### Run the execution code block
+
+Finally run the block below:
 ```bash
 uv sync --frozen --extra mellow --extra dev
 uv pip install --python .venv/bin/python -r requirements-report.txt wandb==0.23.0
