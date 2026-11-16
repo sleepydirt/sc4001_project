@@ -23,7 +23,7 @@ python -m nano_learning.workflow test
 python -m nano_learning.workflow train --runs artifacts/replication_runs
 ```
 
-The test command enables the real-model integration tests. Training runs six 640-update warmups, selects each model's step-640 parent, runs independent +64 SFT/binary-GRPO/typed-GRPO branches, then the +1024 comparisons and Samsone SFT extension to +4096. Mellow has SFT only at +1024. Both models use the corrected selected parent for new +64 runs; the paper's historical Mellow pilot used a different parent.
+The test command enables the real-model integration tests. Training runs six 640-update warmups, selects each model's step-640 parent, runs independent +64 SFT/binary-GRPO/typed-GRPO branches, then the +1024 comparisons and Samsone SFT extension to +4096. Mellow has SFT only at +1024. 
 
 Repeat the training command to resume interrupted runs. W&B defaults to offline logging; set `WANDB_MODE=online` and authenticate with `wandb login` to enable online tracking.
 
@@ -90,8 +90,6 @@ python -m nano_learning.paper_tables pilot64
 ```
 
 The export command freezes the parent and three branch endpoints for each model, evaluates them on the held-out test split, and writes `paper/replication/pilot64.csv` plus predictions. An existing test selection must contain those checkpoints; use a separate prepared study directory for an independent experiment.
-
-New Mellow branches use the selected 10%/640 parent and therefore measure a corrected-parent replication. The paper's historical Mellow +64 measurements came from 100%/256; these commands do not reproduce that different lineage.
 
 ### Section 5.3.1 — Extensions (Table 9: +1024 and SFT +4096)
 
