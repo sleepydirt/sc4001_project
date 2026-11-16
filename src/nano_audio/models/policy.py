@@ -7,7 +7,7 @@ from __future__ import annotations
 import copy,json,sys
 from pathlib import Path
 import torch
-from ..utils import ROOT,read_json,write_json,sha,digest
+from ..utils import ROOT,ARTIFACTS,read_json,write_json,sha,digest
 
 class SamsonePolicy:
     def __init__(self,model_id='samsone_134m_published',device='auto',asset_root=None):
@@ -16,7 +16,7 @@ class SamsonePolicy:
         from samsone.models.text.lm import HuggingFaceLM
         from samsone.models.audio import WhisperAudioEncoder
         self.model_id=model_id;self.device=torch.device('cuda' if device=='auto' and torch.cuda.is_available() else 'cpu' if device=='auto' else device)
-        self.asset_root=Path(asset_root or ROOT/'artifacts/assets');self.assets=read_json(self.asset_root/'manifest.json')
+        self.asset_root=Path(asset_root or ARTIFACTS/'assets');self.assets=read_json(self.asset_root/'manifest.json')
         cp=self.assets['models']['samsone_134m_published']['local_path']
         # Keep optimizer master weights FP32; CUDA operations use FP16 autocast.
         self.native=Samsone134M(device=self.device,dtype=torch.float32,checkpoint_path=cp,max_new_tokens=128)
@@ -39,7 +39,7 @@ class SamsonePolicy:
         self.decoder.generation_config.eos_token_id=self.eos_token_id;self.decoder.generation_config.pad_token_id=self.eos_token_id
         self.model.requires_grad_(True);self.model.audio_encoder.requires_grad_(False);self.model.eval()
         self.encoder_hash=digest({n:sha(cp) if model_id.endswith('published') else self.assets['models']['whisper_tiny']['revision'] for n in ['encoder']})
-        self.feature_cache=ROOT/'artifacts/features';self.feature_cache.mkdir(parents=True,exist_ok=True)
+        self.feature_cache=ARTIFACTS/'features';self.feature_cache.mkdir(parents=True,exist_ok=True)
         self._memory_cache={}
 
     def fingerprint(self):

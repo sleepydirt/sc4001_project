@@ -62,6 +62,7 @@ def sft_loss(logprobs, mask=None):
 class TrainingConfig:
     profile: str = 'smoke'
     objective: str = 'sft'
+    reward_mode: str = 'binary'  # experimental bounded rewards must opt in
     effective_batch_size: int = 1
     microbatch_size: int = 1
     group_size: int = 4
@@ -338,7 +339,11 @@ class Trainer:
                         if not ids:
                             raise ValueError('Empty rollout cannot be scored')
                         reward = float(self.reward_fn(example, rollout))
-                        if reward not in (0., 1.):
+                        if self.config.reward_mode not in ('binary', 'verifiable_partial'):
+                            raise ValueError('Unknown reward mode')
+                        if not math.isfinite(reward) or not 0 <= reward <= 1:
+                            raise ValueError('Reward must be finite and in [0, 1]')
+                        if self.config.reward_mode == 'binary' and reward not in (0., 1.):
                             raise ValueError('Main reward must be binary')
                         # A capped response is a failure even if its text parses.
                         if rollout.get('length_capped', False):

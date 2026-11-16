@@ -1,6 +1,37 @@
 .venv/
+.venv-report/
 artifacts/
-vendor/
+archives/
+dist/
+# Model source checkouts and their Git databases are local resources.
+vendor/*
+!vendor/audio2tool/
+!vendor/audio2tool/**
 __pycache__/
+*.pyc
 *.egg-info/
 .pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.env
+.env.*
+*api_key*
+*credentials*
+*.swp
+paper/generated/jupyter/
+
+# Local recovery history and cluster outputs are not part of the public mirror.
+trash/
+*.slurm
+slurm-*.out
+# Local editor/assistant metadata and TeX build products.
+.agents/
+.codex/
+.aws/
+*.aux
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.log

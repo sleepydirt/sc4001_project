@@ -1,44 +1,108 @@
-# Nano speech-to-tool learning dynamics
+# Learning Dynamics of Nano Speech Language Models on Tool Calling
 
-Research code for **Learning dynamics of supervised and reinforcement post-training for nano speech-to-tool models**. The source specification is [research_instructions.md](research_instructions.md). This execution is a **minimal smoke test**, as requested after reading the proposal. A smoke result verifies mechanics; it does not establish post-training improvement.
+Supervised and reinforcement post-training of Samsone-134M and Mellow on Audio2Tool. This repository contains all training code and environment dependencies needed to replicate all the results in the paper. Note that the environment is configured to work on a NVIDIA Tesla V100.
 
-Use Python 3.12 and `uv`. The tested GPU environment uses Torch/Torchaudio 2.9.1 CUDA 12.8 and Transformers 4.57.6; exact installed versions are in `constraints-linux-py312.txt`. `uv.lock` resolves the package dependency graph; the constraints file additionally includes test/upstream runtime dependencies. No system Python is modified.
+## Setup
 
-```bash
-bash scripts/bootstrap.sh
-# bootstrap fetches/verifies the upstream revisions in artifacts/assets/manifest.json.
-.venv/bin/nano-audio inspect-env
-.venv/bin/nano-audio resolve-models
-.venv/bin/nano-audio download --profile smoke
-.venv/bin/nano-audio smoke-text
-.venv/bin/nano-audio smoke-audio
-.venv/bin/nano-audio prepare-data --profile smoke --device cuda
-.venv/bin/nano-audio audit-data --profile smoke
-.venv/bin/nano-audio train --run S_P1 --profile smoke
-.venv/bin/nano-audio train --run S_P_SFT --profile smoke
-.venv/bin/nano-audio train --run S_P_GRPO --profile smoke
-.venv/bin/nano-audio evaluate --profile smoke
-.venv/bin/nano-audio report --profile smoke
-```
-
-The default resumable orchestrator runs `local_pilot`. For this request, use **explicit `--profile smoke`**. Local pilot and main profiles are provided for later execution, not measured outcomes of this run. Main training uses final test schemas only during explicit evaluation, with three conditional continuation seeds. Stage/checkpoint identities prevent reusing different data/configuration silently. Failed stages retain errors and retry commands.
+Use Linux, Python 3.12, Git LFS and an NVIDIA GPU. Model downloads and dataset preparation require network access and substantial disk space.
 
 ```bash
-.venv/bin/nano-audio run-study --profile smoke
-.venv/bin/pytest -q
-NANO_AUDIO_INTEGRATION=1 .venv/bin/pytest -q tests/test_policy.py
-# Later, on a suitable server; not submitted automatically:
-sbatch scripts/v100.slurm
+uv sync --frozen --extra mellow --extra dev
+uv pip install --python .venv/bin/python -r requirements-report.txt wandb==0.23.0
+source .venv/bin/activate
+export AUDIO2TOOL_STUDY="$PWD/artifacts/replication_data"
+python -m nano_learning.workflow prepare
 ```
 
-Samsone training uses the released Whisper-tiny encoder, native 50-token pooler, nonlinear 384→576 projector, separator parameter and officially pruned SmolLM2 decoder. Fresh initialization selects the original text-pretrained embedding/output rows with the exact same vocabulary map and loads original Whisper encoder weights. Whole state shapes, map and tying are asserted equal. Encoder features are cached before the trainable projector. Native inference remains separate from research prompts. FP32 master weights and FP16 autocast/scaling are used on this GPU.
+Preparation downloads the two models and Audio2Tool, verifies audio, profiles model interfaces, applies registry/tokenization/audio-length filters, and constructs grouped train/validation/test splits. The protocol caps context at 8,192 tokens and completions at 512 tokens. Keep `AUDIO2TOOL_STUDY` set to the same directory for subsequent commands.
 
-GRPO samples four unconstrained completions per prompt with temperature one and no top-k/top-p restriction. Only complete semantic success earns reward. A frozen complete shared-initialization reference includes its own projector. All-zero-reward groups provide **no reward learning signal**; inspect the saved rollout/learning ledgers. Continued SFT and GRPO have the same parent checkpoint.
+## Test and train
 
-Artifacts contain real prompts/token IDs/predictions, exact hashes, data audits, gradient evidence and checkpoints. See `artifacts/reports/smoke/research_report.md` for measured outcomes, external blockers and implementation limits. Human-speech results, published benchmark reproduction and full experiments must not be inferred from synthetic or infrastructure checks.
+```bash
+python -m nano_learning.workflow test
+python -m nano_learning.workflow train --runs artifacts/replication_runs
+```
 
-Mellow research uses BF16 on the verified RTX 4070 Super because its FP16 decoder scoring was nonfinite; on a CUDA GPU without BF16 support it uses FP32. Native Mellow inference remains FP32 with its original sampling protocol. Compatibility details and failed precision diagnostics are retained under `artifacts/reproduction/`. The main server environment must be checked independently.
+The test command enables the real-model integration tests. Training runs six 640-update warmups, selects each model's step-640 parent, runs independent +64 SFT/binary-GRPO/typed-GRPO branches, then the +1024 comparisons and Samsone SFT extension to +4096. Mellow has SFT only at +1024. Both models use the corrected selected parent for new +64 runs; the paper's historical Mellow pilot used a different parent.
 
-The eight-example diagnostic is available as `nano-audio overfit --profile local_pilot`. It is deliberately skipped by `run-study --profile smoke`. Grounding/cascade checks use `nano-audio evaluate --profile smoke --suite controls`. Audio2Tool consistency checks use `nano-audio audit-external --input rows.jsonl --catalog fixed_domain_catalogs.json --output audit.json`; this is an audit, not a substituted official benchmark score.
+Repeat the training command to resume interrupted runs. W&B defaults to offline logging; set `WANDB_MODE=online` and authenticate with `wandb login` to enable online tracking.
 
-A subsequent bounded exact-reward GRPO development attempt is recorded in [the GRPO continuation report](artifacts/grpo_attempt_20261107/overall_report.md). It resolved the all-zero-reward cold start with stronger shared SFT, logged every sampled generation, and compared GRPO with continued SFT from identical parents. Those results are separate from the original one-update smoke.
+Individual stages remain available through `python -m nano_learning.training --help`.
+
+## Evaluate and report
+
+```bash
+python -m nano_learning.workflow evaluate --runs artifacts/replication_runs
+```
+
+This evaluates completed endpoints on full validation, prints macro/pooled exact accuracy, argument F1 and schema validity, and writes `artifacts/replication_runs/results.csv`. Each run retains predictions, training logs and validation measurements. Accuracy values in the CSV are fractions.
+
+For a specific checkpoint or held-out test evaluation, use `python -m nano_learning.inference --help`. Freeze checkpoint selection with `python -m nano_learning.lock_evaluation --help` before test evaluation.
+
+The paper notebook can regenerate the original study's figures from its saved local results:
+
+```bash
+python -m nano_learning.notebook
+```
+
+New-run results are reported by the workflow command above; the historical notebook uses the original study layout. Models, raw data, environments and training outputs are Git-ignored.
+
+## Replicate individual paper tables
+
+Run Setup first and keep `AUDIO2TOOL_STUDY` set. Commands below use the same `artifacts/replication_runs` directory, so completed training stages can be reused. New training reproduces the protocol; stochastic scores and hardware-dependent times may differ from the paper. Exported CSV metrics are fractions; multiply by 100 for percentage columns.
+
+### Section 4.2 — Dataset (Tables 2–4)
+
+The source overview, filtered cohort and grouped splits correspond to `tab:audio2tool-hours`, `tab:audio2tool-filtered` and `tab:audio2tool-grouped-split`.
+
+```bash
+python -m nano_learning.workflow prepare
+python -m nano_learning.paper_tables dataset
+```
+
+Outputs: `paper/replication/tables/dataset.csv`, `splits.csv` and matching LaTeX fragments. Dataset counts distinguish references, distinct WAVs and request groups.
+
+### Section 5.1 — Design (Table 5: trainable parameters)
+
+```bash
+python -m nano_learning.paper_tables parameters
+```
+
+Output: `paper/replication/parameters.json`, containing each model's parameter manifest. This loads the prepared models without training.
+
+### Section 5.2 — Supervised warm-up (Tables 6–7)
+
+```bash
+python -m nano_learning.workflow warmup
+python -m nano_learning.paper_tables dataset
+python -m nano_learning.paper_tables warmup
+```
+
+The first command runs both models at 10%, 30% and 100% training pools for 640 updates and selects the step-640 parents. Table 6 pool counts are written during preparation to `$AUDIO2TOOL_STUDY/train_subset_coverage.json`; Table 7 endpoint scores are exported to `paper/replication/warmup.csv`. Full-validation measurements at updates 256, 512 and 640 remain in each run's `validation/` directory.
+
+### Section 5.3 — Learning dynamics of SFT against RL (Table 8: +64 pilot)
+
+Run the warm-up commands above first.
+
+```bash
+python -m nano_learning.workflow pilot64
+python -m nano_learning.paper_tables pilot64
+```
+
+The export command freezes the parent and three branch endpoints for each model, evaluates them on the held-out test split, and writes `paper/replication/pilot64.csv` plus predictions. An existing test selection must contain those checkpoints; use a separate prepared study directory for an independent experiment.
+
+New Mellow branches use the selected 10%/640 parent and therefore measure a corrected-parent replication. The paper's historical Mellow +64 measurements came from 100%/256; these commands do not reproduce that different lineage.
+
+### Section 5.3.1 — Extensions (Table 9: +1024 and SFT +4096)
+
+Run the warm-up commands first. The +64 stage is not a checkpoint prerequisite for these independent continuations.
+
+```bash
+python -m nano_learning.workflow continuation1024
+python -m nano_learning.workflow sft4096
+python -m nano_learning.paper_tables extensions
+```
+
+Output: `paper/replication/extensions.csv` with full-validation endpoint metrics. Training durations are the sum of `elapsed_seconds` in each run's `learning.jsonl`; the +4096 total includes both the +1024 SFT and subsequent 3072-update segments. These timings exclude loading, evaluation and checkpoint I/O and depend on the GPU used.
+
+Table 1 in Section 2.3 contains analytical weight-memory estimates, rather than measured training results. Its ideal storage calculation is parameter count × bytes per parameter; peak inference memory requires a separate device measurement.

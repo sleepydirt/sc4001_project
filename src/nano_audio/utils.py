@@ -2,6 +2,7 @@ from __future__ import annotations
 import hashlib, json, os, subprocess, time
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
+ARTIFACTS = Path(os.environ.get('AUDIO2TOOL_ARTIFACTS', ROOT / 'artifacts')).resolve()
 def sha(path):
     h=hashlib.sha256()
     with Path(path).open('rb') as f:
