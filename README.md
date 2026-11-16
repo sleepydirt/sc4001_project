@@ -7,7 +7,7 @@ Supervised and reinforcement post-training of Samsone-134M and Mellow on Audio2T
 Use Linux, Python 3.12, Git LFS and an NVIDIA GPU. Model downloads and dataset preparation require network access and substantial disk space.
 
 ### Linux Setup
-If you do not have Linux, follow these steps:
+If you **already have** Linux, you can skip to the next section on HuggingFace Token. However, if you **do not** have Linux, follow these steps below:
 ```bash
 wsl --install -d Ubuntu
 ```
@@ -25,8 +25,6 @@ source $HOME/.local/bin/env
 uv python install 3.12
 ```
 ### HuggingFace Token
-
-If you already have Linux, you can skip to this section.
 
 Clone the repository into your machine:
 ```bash
